@@ -1,8 +1,16 @@
 import Link from "next/link";
-
+import { type Metadata } from "next";
 import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Home",
+    default: "Ebugi Home",
+  },
+  description: "EveryTime clone coding",
+};
 
 export default async function Home() {
   const hello = await api.post.hello.query({ text: "from tRPC" });
