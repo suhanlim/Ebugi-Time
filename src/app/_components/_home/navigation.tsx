@@ -14,7 +14,7 @@ export default function Navigation() {
             <Image src="/assets/logo.png" alt="Logo" width={64} height={90} />
           </Link>
           <div className="ml-3 flex flex-col whitespace-nowrap text-xl font-semibold dark:text-white">
-            <span className="text-sm text-blue-700">에브리타임</span>
+            <span className="text-sm text-blue-700">에부기타임</span>
             <span className="">한성대</span>
           </div>
         </div>
