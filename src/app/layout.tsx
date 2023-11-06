@@ -25,9 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
         <Navigation />
-        <div className="flex-grow p-6 md:overflow-y-auto md:p-12">
-          <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
-        </div>
+        <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
       </body>
     </html>
   );
