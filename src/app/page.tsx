@@ -6,6 +6,8 @@ import { api } from "~/trpc/server";
 import Submenu from "./_components/_home/submenu";
 import LeftSide from "./_components/_home/leftSide";
 import BordCollection from "./_components/_home/boardCollection";
+import Search from "./_components/_home/search";
+import RightSide from "./_components/_home/rightSide";
 
 export const metadata: Metadata = {
   title: {
@@ -22,10 +24,10 @@ export default async function Home() {
   return (
     <main className="bg-white">
       <Submenu />
-      <div className="flex flex-row">
+      <div className="flex w-full flex-row">
         <LeftSide />
         <BordCollection />
-        <LeftSide />
+        <RightSide />
         <CrudShowcase />
       </div>
       <div className="flex flex-row items-center justify-center gap-2 bg-white px-2 py-4">
