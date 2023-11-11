@@ -24,7 +24,7 @@ export default async function Home() {
   return (
     <main className="bg-white">
       <Submenu />
-      <div className="flex w-full flex-row">
+      <div className="flex flex-row justify-center">
         <LeftSide />
         <BordCollection />
         <RightSide />

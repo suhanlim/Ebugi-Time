@@ -7,7 +7,7 @@ import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 export default function LeftSide() {
   return (
     <div className="gap-2 px-2 py-4">
-      <div className="card w-56 bg-base-200 shadow-xl">
+      <div className="card mx-2 my-4 w-56 bg-base-200 shadow-xl">
         <figure className="px-2 pt-2">
           <Image
             src="/assets/logo.png"
@@ -27,8 +27,7 @@ export default function LeftSide() {
         </div>
       </div>
 
-      <div className="gap-2 px-2 py-2"></div>
-      <ul className="menu rounded-box w-56 bg-base-200 shadow-xl">
+      <ul className="menu rounded-box mx-2 my-4 w-56 bg-base-200 shadow-xl">
         <li>
           <Link href="/myarticle">
             <TocOutlinedIcon />
