@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 export default function CommunityTableEntry() {
   const router = useRouter();
-  const goRouteId = (id) => {
+  const goRouteId = (id: string) => {
     router.push(`/${id}`);
   };
   return (
