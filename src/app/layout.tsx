@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="">
       <body className={`font-sans ${inter.variable}`}>
         <Navigation />
         <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
