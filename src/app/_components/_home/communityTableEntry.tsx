@@ -9,7 +9,7 @@ export default function CommunityTableEntry() {
     router.push(`/${id}`);
   };
   return (
-    <tr className=" hover:bg-sky-100 " onClick={() => useRouter("post")}>
+    <tr className=" hover:bg-sky-100 " onClick={() => goRouteId("post")}>
       <td>
         <div className="flex items-center space-x-3">
           <div className="mask mask-squircle flex h-12 w-12 bg-indigo-500">
