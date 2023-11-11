@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import Navigation from "./_components/_home/navigation";
+import Footer from "./_components/_home/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`font-sans ${inter.variable}`}>
         <Navigation />
         <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
+        <Footer />
       </body>
     </html>
   );

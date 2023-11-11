@@ -10,8 +10,6 @@ export default function BordCollection() {
         <Board />
         <Board />
         <Board />
-        <Board />
-        <Board />
       </div>
     </div>
   );

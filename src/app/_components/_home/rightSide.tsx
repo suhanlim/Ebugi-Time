@@ -1,6 +1,6 @@
 import Search from "./search";
 import Board from "./board";
-
+import Table from "./communityTable";
 export default function RightSide() {
   return (
     <div className="flex flex-col">
@@ -8,6 +8,7 @@ export default function RightSide() {
         <Search placeholder="전체 게시판의 글을 검색하세요!" />
       </div>
       <Board />
+      <Table />
     </div>
   );
 }
