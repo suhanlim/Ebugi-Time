@@ -1,0 +1,52 @@
+import Image from "next/image";
+import Link from "next/link";
+import GradeOutlinedIcon from "@mui/icons-material/GradeOutlined";
+import TocOutlinedIcon from "@mui/icons-material/TocOutlined";
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+
+export default function LeftSide() {
+  return (
+    <div className="gap-2 px-2 py-4">
+      <div className="card w-56 bg-base-200 shadow-xl">
+        <figure className="px-2 pt-2">
+          <Image
+            src="/assets/logo.png"
+            alt="User Profile"
+            width={80} // Set the width as needed
+            height={80} // Set the height as needed
+          />
+        </figure>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">@nomer</h2>
+          <p>1971343 임수한</p>
+          <div className="card-actions">
+            <Link href="/my">
+              <button className="btn btn-primary">My Page</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="gap-2 px-2 py-2"></div>
+      <ul className="menu rounded-box w-56 bg-base-200 shadow-xl">
+        <li>
+          <Link href="/myarticle">
+            <TocOutlinedIcon />
+            내가 쓴 글
+          </Link>
+        </li>
+        <li>
+          <Link href="/mycommentarticle">
+            <ChatOutlinedIcon />
+            댓글 단 글
+          </Link>
+        </li>
+        <li>
+          <Link href="/myscrap">
+            <GradeOutlinedIcon></GradeOutlinedIcon>내 스크랩
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+}
