@@ -20,7 +20,7 @@ export function PersonalPanel() {
           <h2 className="card-title">@nomer</h2>
           <p>1971343 임수한</p>
           <div className="card-actions">
-            <Link href="/my">
+            <Link href="/profile/1">
               <button className="btn btn-primary">My Page</button>
             </Link>
           </div>

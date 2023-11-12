@@ -6,7 +6,7 @@ export function CollegeTable() {
         {/* head */}
         <thead>
           <tr>
-            <th>Name</th>
+            <th>User</th>
             <th>Title</th>
             <th>Date</th>
           </tr>

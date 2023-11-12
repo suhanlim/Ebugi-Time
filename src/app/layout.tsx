@@ -3,8 +3,7 @@ import { Inter } from "next/font/google";
 import { headers } from "next/headers";
 
 import { TRPCReactProvider } from "~/trpc/react";
-import Navigation from "./_components/_home/navigation";
-import Footer from "./_components/_common/footer";
+import { Footer } from "./_components/_common/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="">
       <body className={`font-sans ${inter.variable}`}>
-        <Navigation />
         <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
         <Footer />
       </body>

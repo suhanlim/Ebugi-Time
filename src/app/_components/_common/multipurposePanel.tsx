@@ -1,7 +1,7 @@
-import Search from "./search";
-import { TimeWidget } from "./timeWidget";
-import { IssueTable } from "./issueTable";
-import { LectureEvaluationTable } from "./lectureEvaluationTable";
+import Search from "../_home/search";
+import { TimeWidget } from "../_home/timeWidget";
+import { IssueTable } from "../_home/issueTable";
+import { LectureEvaluationTable } from "../_home/lectureEvaluationTable";
 export function MultipurposePanel() {
   return (
     <div className=" flex max-w-sm flex-col gap-2 px-2 py-4">

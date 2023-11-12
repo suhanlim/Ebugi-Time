@@ -3,9 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
-import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
+import LogoutIcon from "@mui/icons-material/Logout";
+import PersonIcon from "@mui/icons-material/Person";
 
-export default function Navigation() {
+export function Navigation() {
   return (
     <nav className="sticky top-0 z-50 border-gray-200 bg-white dark:bg-gray-900">
       <div className="container mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-2">
@@ -24,9 +25,14 @@ export default function Navigation() {
               <ForumRoundedIcon />
             </span>
           </Link>
-          <Link href="/my" title="내 정보">
+          <Link href="/profile/1" title="내 정보">
             <span className="rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-              <PersonOutlineRoundedIcon />
+              <PersonIcon />
+            </span>
+          </Link>
+          <Link href="/login" title="logout">
+            <span className="rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+              <LogoutIcon />
             </span>
           </Link>
         </div>

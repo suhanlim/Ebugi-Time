@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 export function CollegeTableEntry() {
   const router = useRouter();
-  const goRouteId = (id: string) => {
-    router.push(`/${id}`);
+  const goRouteId = (id: number) => {
+    router.push(`/post/${id}`);
   };
   return (
-    <tr className=" hover:bg-sky-100 " onClick={() => goRouteId("post")}>
+    <tr className=" hover:bg-sky-100 " onClick={() => goRouteId(1)}>
       <td>
         <div className="flex items-center space-x-3">
           <div className="mask mask-squircle flex h-12 w-12 bg-indigo-500">
@@ -30,10 +30,10 @@ export function CollegeTableEntry() {
         Zemlak, Daniel and Leannon
         <br />
         <span className="badge badge-ghost badge-sm">
-          Desktop Support Technician
+          key word: hansung university
         </span>
       </td>
-      <td>Purple</td>
+      <td className="text-xs">11/12 13:12</td>
     </tr>
   );
 }
