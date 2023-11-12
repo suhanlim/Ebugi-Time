@@ -43,7 +43,7 @@ function chunkArray<T>(array: T[], size: number) {
   return chunkedArr;
 }
 
-export default function Submenu() {
+export function Submenu() {
   return (
     <div className=" grid grid-cols-5 justify-center divide-x bg-sky-50">
       {/* sliding effect each college */}

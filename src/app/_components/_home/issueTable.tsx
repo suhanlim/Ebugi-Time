@@ -1,4 +1,4 @@
-export default function HotBoard() {
+export function IssueTable() {
   return (
     <div className="rounded-lg bg-base-200 shadow-xl">
       <table className="table">

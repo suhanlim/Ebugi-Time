@@ -1,5 +1,5 @@
-import BoardEntry from "./lectureEvaluationBoardEntry";
-export default function LectureEvaluationBoard() {
+import { LectureEvaluationTableEntry } from "./lectureEvaluationTableEntry";
+export function LectureEvaluationTable() {
   return (
     <div className="overflow-x-auto rounded-lg shadow-xl">
       <table className="table">
@@ -12,17 +12,17 @@ export default function LectureEvaluationBoard() {
         <tbody>
           <tr>
             <td>
-              <BoardEntry />
+              <LectureEvaluationTableEntry />
             </td>
           </tr>
           <tr>
             <td>
-              <BoardEntry />
+              <LectureEvaluationTableEntry />
             </td>
           </tr>
           <tr>
             <td>
-              <BoardEntry />
+              <LectureEvaluationTableEntry />
             </td>
           </tr>
         </tbody>

@@ -4,7 +4,7 @@ import GradeOutlinedIcon from "@mui/icons-material/GradeOutlined";
 import TocOutlinedIcon from "@mui/icons-material/TocOutlined";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 
-export default function LeftSide() {
+export function PersonalPanel() {
   return (
     <div className="gap-2 px-2 py-4">
       <div className="card mx-2 my-4 w-56 bg-base-200 shadow-xl">
@@ -42,7 +42,7 @@ export default function LeftSide() {
         </li>
         <li>
           <Link href="/myscrap">
-            <GradeOutlinedIcon></GradeOutlinedIcon>내 스크랩
+            <GradeOutlinedIcon />내 스크랩
           </Link>
         </li>
       </ul>

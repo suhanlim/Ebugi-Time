@@ -3,11 +3,10 @@ import { type Metadata } from "next";
 import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
-import Submenu from "./_components/_home/submenu";
-import LeftSide from "./_components/_home/leftSide";
-import BordCollection from "./_components/_home/boardCollection";
-import Search from "./_components/_home/search";
-import RightSide from "./_components/_home/rightSide";
+import { Submenu } from "./_components/_home/submenu";
+import { CollegePanel } from "~/app/_components/_home/collegePanel";
+import { PersonalPanel } from "./_components/_home/personalPanel";
+import { MultipurposePanel } from "./_components/_home/multipurposePanel";
 
 export const metadata: Metadata = {
   title: {
@@ -25,9 +24,9 @@ export default async function Home() {
     <main className="bg-white">
       <Submenu />
       <div className="flex flex-row justify-center">
-        <LeftSide />
-        <BordCollection />
-        <RightSide />
+        <PersonalPanel />
+        <CollegePanel />
+        <MultipurposePanel />
       </div>
     </main>
   );

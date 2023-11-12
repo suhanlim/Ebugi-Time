@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import Navigation from "./_components/_home/navigation";
-import Footer from "./_components/_home/footer";
+import Footer from "./_components/_common/footer";
 
 const inter = Inter({
   subsets: ["latin"],

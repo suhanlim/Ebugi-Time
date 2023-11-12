@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-export default function CommunityTableEntry() {
+export function CollegeTableEntry() {
   const router = useRouter();
   const goRouteId = (id: string) => {
     router.push(`/${id}`);

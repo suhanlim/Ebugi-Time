@@ -1,5 +1,5 @@
-import TableEntry from "./communityTableEntry";
-export default function CommunityTable() {
+import { CollegeTableEntry } from "./collegeTableEntry";
+export function CollegeTable() {
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -12,10 +12,10 @@ export default function CommunityTable() {
           </tr>
         </thead>
         <tbody>
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
-          <TableEntry />
+          <CollegeTableEntry />
+          <CollegeTableEntry />
+          <CollegeTableEntry />
+          <CollegeTableEntry />
         </tbody>
         {/* foot */}
         <tfoot></tfoot>

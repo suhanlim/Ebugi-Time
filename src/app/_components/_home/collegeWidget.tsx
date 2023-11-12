@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Table from "./communityTable";
-export default function CollegeBoard() {
+import { CollegeTable } from "./collegeTable";
+export function CollegeWidget() {
   return (
     <div className="card flex flex-col gap-4 bg-base-100 p-4 shadow-xl hover:bg-white/20">
       <div className="card-body">
@@ -9,8 +9,7 @@ export default function CollegeBoard() {
             First Steps →
           </h3>
         </Link>
-
-        <Table />
+        <CollegeTable />
       </div>
     </div>
   );
