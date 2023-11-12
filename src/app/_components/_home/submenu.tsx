@@ -45,7 +45,8 @@ function chunkArray<T>(array: T[], size: number) {
 
 export default function Submenu() {
   return (
-    <div className="flex flex-row justify-center bg-sky-50">
+    <div className=" grid grid-cols-5 justify-center divide-x bg-sky-50">
+      {/* sliding effect each college */}
       {linkMatrix.map((links, i) => {
         return <SubmeauEntry key={links[0]?.name ?? i} items={links} />;
       })}

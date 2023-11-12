@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import TableEntry from "./communityTableEntry";
 export default function CommunityTable() {
   return (

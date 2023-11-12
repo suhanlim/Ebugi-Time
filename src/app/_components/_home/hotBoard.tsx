@@ -1,6 +1,6 @@
 export default function HotBoard() {
   return (
-    <div className="overflow-x-auto rounded-lg bg-base-200 shadow-xl">
+    <div className="rounded-lg bg-base-200 shadow-xl">
       <table className="table">
         {/* head */}
         <thead>
