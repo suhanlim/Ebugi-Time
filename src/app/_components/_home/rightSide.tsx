@@ -1,5 +1,4 @@
 import Search from "./search";
-import Board from "./board";
 import CountDown from "./countDown";
 import HotBoard from "./hotBoard";
 import LectureBoard from "./lectureEvaluationBoard";
