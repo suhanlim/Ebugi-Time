@@ -6,7 +6,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 https://pnpm.io/installation
 
-## Using npm
+## Download Using npm
 We provide two packages of pnpm CLI, pnpm and @pnpm/exe.
 
 - `pnpm` is a ordinary version of pnpm, which needs Node.js to run.
