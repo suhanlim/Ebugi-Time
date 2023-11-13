@@ -1,5 +1,18 @@
 # Create T3 App
 
+## Package Manager: pnpm
+
+https://pnpm.io/installation
+
+Using npm
+We provide two packages of pnpm CLI, pnpm and @pnpm/exe.
+
+pnpm is a ordinary version of pnpm, which needs Node.js to run.
+@pnpm/exe is packaged with Node.js into an executable, so it may be used on a system with no Node.js installed.
+```
+npm install -g pnpm
+```
+
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
 ## What's next? How do I make an app with this?
