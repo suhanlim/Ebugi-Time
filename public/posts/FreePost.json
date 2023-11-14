@@ -1,0 +1,67 @@
+{
+    "posts": [
+        {
+            "postId" : 1,
+            "postUserId": 1,
+            "postedDate": "2023년 11월 03일",
+            "likedCount": 3,
+            "postContent": "자유게시판에 작성된 글 1의 내용입니다.",
+            "comment": [
+                {
+                    "userId": 1,
+                    "userComment": "집 가고 싶다",
+                    "commentDate": "2023년 11월 3일",
+                    "commentedLiked": 3
+                },
+                {
+                    "userId": 2,
+                    "userComment": "집 가고 싶다22",
+                    "commentDate": "2023년 11월 4일",
+                    "commentedLiked": 2
+                }
+            ]
+        },
+        {
+            "postId" : 2,
+            "postUserId": 2,
+            "postedDate": "2023년 11월 03일",
+            "likedCount": 3,
+            "postContent": "자유게시판에 작성된 글 2의 내용입니다.",
+            "comment": [
+                {
+                    "userId": 1,
+                    "userComment": "post2 comment1",
+                    "commentDate": "2023년 11월 3일",
+                    "commentedLiked": 3
+                },
+                {
+                    "userId": 2,
+                    "userComment": "post2 comment2",
+                    "commentDate": "2023년 11월 4일",
+                    "commentedLiked": 2
+                }
+            ]
+        },
+        {
+            "postId" : 3,
+            "postUserId": 3,
+            "postedDate": "2023년 11월 03일",
+            "likedCount": 4,
+            "postContent": "자유게시판에 작성된 글 3의 내용입니다.",
+            "comment": [
+                {
+                    "userId": 1,
+                    "userComment": "post3 comment1",
+                    "commentDate": "2023년 11월 3일",
+                    "commentedLiked": 3
+                },
+                {
+                    "userId": 2,
+                    "userComment": "post3 comment1",
+                    "commentDate": "2023년 11월 4일",
+                    "commentedLiked": 2
+                }
+            ]
+        }
+    ]
+}
