@@ -20,20 +20,23 @@ export function CollegeTableEntry() {
               width={64}
             />
           </div>
-          <div className="flex-1">
-            <div className="font-bold">Hart Hagerty</div>
-            <div className="text-sm opacity-50">United States</div>
+          <div className="flex-1 text-sm">
+            <div className="font-bold">@nomer</div>
+            <div className=" opacity-50">1971343</div>
           </div>
         </div>
       </td>
-      <td>
+      <td className="text-xs">
         Zemlak, Daniel and Leannon
         <br />
-        <span className="badge badge-ghost badge-sm">
+        <span className="badge badge-ghost badge-xs">
           key word: hansung university
         </span>
       </td>
-      <td className="text-xs">11/12 13:12</td>
+      <td className="text-xs">
+        11/12 <br />
+        <span className="text-xs">13:12</span>
+      </td>
     </tr>
   );
 }
