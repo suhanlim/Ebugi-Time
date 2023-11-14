@@ -94,13 +94,13 @@ const FreePost = () => {
 
     const [postData, setPostData] = useState<PostData | null>(null);
     
-
     useEffect(() => {
         const fetchData = async () => {
             try {
                 // 전체 게시글 데이터 불러오기
-                const response = await axios.get<PostData[]>('/posts/FreePost.json'); 
-                const post = response.data.find(p => p.postId.toString() === postId); // URL의 postId와 일치하는 게시글 찾기
+                const response = await axios.get('/posts/FreePost.json'); 
+                const postArray: PostData[] = response.data.posts
+                const post = postArray.find(p => p.postId.toString() === postId); // URL의 postId와 일치하는 게시글 찾기
                 if (post) {
                     setPostData(post);
                 } else {
@@ -115,7 +115,7 @@ const FreePost = () => {
     }, [postId]);
 
     if (!postData) {
-        return <div>데이터를 로딩 중입니다...</div>;
+        return <div>데이터를 로딩 중입니다... by FreePost</div>;
     }
 
     return (

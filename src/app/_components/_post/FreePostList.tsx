@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 
 interface PostData{
     postId: number;
@@ -19,6 +20,17 @@ interface CommentData {
     commentDate: string | undefined;
     commentedLiked: number;
 }
+
+
+const TitleContainer = styled.div`
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border: 1px solid #d6d6d6;
+    box-sizing: border-box;
+`;
+
 
 
 const FreePostList = () => {
@@ -42,12 +54,14 @@ const FreePostList = () => {
     }, []);
 
     if (!postsData.length) {
-        return <div>데이터를 로딩 중입니다...</div>;
+        return <div>데이터를 로딩 중입니다...by FreePostList</div>;
     }
 
     return (
         <section>
-            <h1>자유 게시판 목록</h1>
+            <TitleContainer>
+                <strong>자유 게시판</strong>
+            </TitleContainer>
             <ul>
                 {postsData.map((post) => (
                     <li key={post.postId}>

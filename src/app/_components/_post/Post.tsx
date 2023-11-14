@@ -31,8 +31,14 @@ const Post: React.FC<PostData> = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/posts/${postId}.json`);
-                setPost(response.data);
+                const response = await axios.get('/posts/FreePost.json'); 
+                const postArray: PostData[] = response.data.posts
+                // postId와 일치하는 게시글 찾기
+                const post = postArray.find(p => p.postId.toString() === postId); 
+                setPost(post || null)
+                console.log(postArray);
+                console.log(post)
+
             } catch (error) {
                 console.error('데이터를 가져오는 중 오류 발생:', error);
             }
@@ -42,7 +48,7 @@ const Post: React.FC<PostData> = () => {
     }, [postId]);
 
     if (!post) {
-        return <div>데이터를 로딩 중입니다...</div>;
+        return <div>데이터를 로딩 중입니다...by Post</div>;
     }
 
     return (
