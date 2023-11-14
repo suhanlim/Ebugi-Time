@@ -1,5 +1,5 @@
 //댓글 하나에 대한 컴포넌트
-// use client
+"use client"
 import React from "react";
 
 

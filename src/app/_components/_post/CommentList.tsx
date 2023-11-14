@@ -1,5 +1,5 @@
 //게시판에 사용자들이 달은 댓글들을 보여주는 컴포넌트
-// use client
+"use client"
 import React, { useState } from "react";
 import Comment from "./Comment";
 import styled from "styled-components";

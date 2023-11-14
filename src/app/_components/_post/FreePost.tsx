@@ -1,8 +1,8 @@
-// use client
+"use client"
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Post from './Post'; //작성한 글
-import CommentList from "./CommentList" //댓글 리스트
+import Post from './Post';
+import CommentList from './CommentList'; //댓글 리스트
 import axios from 'axios';
 import styled from 'styled-components';
 

@@ -1,4 +1,4 @@
-// use client
+"use client"
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -27,9 +27,12 @@ const FreePostList = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                console.log("데이터 로딩중")
                 // 모든 게시글을 포함하는 JSON 파일
                 const response = await axios.get('/posts/FreePost.json'); 
-                setPostsData(response.data.posts);
+                const postArray: PostData[] = response.data.posts
+                setPostsData(postArray);
+                console.log(response.data.posts);
             } catch (error) {
                 console.error('데이터를 가져오는 중 오류 발생:', error);
             }
