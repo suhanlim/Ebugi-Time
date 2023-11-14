@@ -6,7 +6,7 @@ import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 
-export function Navigation() {
+export function NavigationBar() {
   return (
     <nav className="sticky top-0 z-50 border-gray-200 bg-white dark:bg-gray-900">
       <div className="container mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-2">

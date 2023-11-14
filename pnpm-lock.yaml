@@ -83,6 +83,9 @@ dependencies:
   superjson:
     specifier: ^1.13.3
     version: 1.13.3
+  swiper:
+    specifier: ^11.0.4
+    version: 11.0.4
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -3605,6 +3608,11 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /swiper@11.0.4:
+    resolution: {integrity: sha512-qtUxILrD4aD++rpKzGrkz3IAWL92f9uTrDwjb6HaNLmPvJhZCE/83DL+9w4kIgDDJeF6QKalV47rMBN77UOVYQ==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /tailwindcss@3.3.5:
     resolution: {integrity: sha512-5SEZU4J7pxZgSkv7FP1zY8i2TIAOooNZ1e/OGtxIEv6GltpoiXUqWvLy89+a10qYTB1N5Ifkuw9lqQkN9sscvA==}
