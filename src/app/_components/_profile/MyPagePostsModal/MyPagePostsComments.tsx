@@ -36,9 +36,9 @@ const AppendCommentDiv = styled.div`
   margin-bottom:50px;
 `
 
-const MyPagePostsComments = ({props, setModal}) => {
+const MyPagePostsComments = ({props, setModal}:any) => {
 
-  const userPostsInfo = useSelector((state) => state.user.userPosts);
+  const userPostsInfo = useSelector((state:any) => state.user.userPosts);
   const dispatch = useDispatch();
 
 
@@ -72,7 +72,7 @@ const MyPagePostsComments = ({props, setModal}) => {
 
   // 댓글 입력/수정/삭제 시 json에 업데이트
   useEffect(()=>{
-    const newUserInfo = userPostsInfo.map((post)=>{
+    const newUserInfo = userPostsInfo.map((post:any)=>{
       if(post==props){
         return {
           ...post,
@@ -86,9 +86,10 @@ const MyPagePostsComments = ({props, setModal}) => {
 
   return (
     <>
-      {commentList.map((v,i)=>{
+      {commentList.map((v:any,i:any)=>{
         return (
-          <CommentsDiv key={i}>
+          <CommentsDiv key={i} className="text-xl bg-base-100">
+            <br/>
             <div className="userImg">{v.userImage}</div>
             {/* <div className="deleteBtn">삭제</div>
             <div className="editBtn" >수정</div> */}
@@ -103,8 +104,16 @@ const MyPagePostsComments = ({props, setModal}) => {
       })}
       <AppendCommentDiv>
         <label>댓글 입력:</label>
-        <input value={inputComment} onChange={e => setInputComment(e.target.value)} />
-        <button onClick={appendComment}>작성</button>
+        <input placeholder="Type here" 
+          className="input input-bordered input-info w-full max-w-xs"
+          value={inputComment}
+          onChange={e => setInputComment(e.target.value)} 
+          onKeyDown={(e)=>{if(e.key==='Enter'){
+            if(inputComment=="") alert("댓글을 입력해 주세요!"); else appendComment();}}}
+          />
+          <button onClick={ ()=>{
+            if(inputComment=="") alert("댓글을 입력해 주세요!"); else appendComment();}}
+            className="btn btn-primary">작성</button>
       </AppendCommentDiv>
     </>
   )

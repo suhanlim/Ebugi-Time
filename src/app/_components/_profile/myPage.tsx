@@ -110,11 +110,11 @@ function MyPage() {
   //console.log(user.push(`/`));
 
   // 유저 정보
-  const [userData, setUserData] = useState<any[]>([]);
+  const [userData, setUserData]:any = useState();
 
   // 유저 이미지
   //const [userImage, setUserImage] = useState();
-  const [userImage, setUserImage] = useState<any[]>([]);
+  const [userImage, setUserImage] = useState();
   
   // 게시물, 댓글, 스토리 몇 번째 인덱스인지 저장
   const [selecteIndex, setSelectedIndex] = useState(0);
