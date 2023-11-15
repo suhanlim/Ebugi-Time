@@ -113,6 +113,7 @@ function MyPage() {
   const [userData, setUserData] = useState<any[]>([]);
 
   // 유저 이미지
+  //const [userImage, setUserImage] = useState();
   const [userImage, setUserImage] = useState<any[]>([]);
   
   // 게시물, 댓글, 스토리 몇 번째 인덱스인지 저장

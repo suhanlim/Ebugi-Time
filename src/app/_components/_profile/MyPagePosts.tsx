@@ -58,7 +58,7 @@ const ModalContainer = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `
 
-const MyPagePosts = ({user,userImage}) => {
+const MyPagePosts = ({user,userImage}:any) => {
 
   const [hover, setHover] = useState(-1);
   const [modal,setModal] = useState(false);
@@ -68,13 +68,13 @@ const MyPagePosts = ({user,userImage}) => {
     if(modal==false) setHover(-1);
   },[modal])
 
-  const handleClick = (e) => {
+  const handleClick = (e:any) => {
     e.preventDefault();
   }
 
 
   
-  const userPostsInfo = useSelector((state) => state.user.userPosts);
+  const userPostsInfo = useSelector((state:any) => state.user.userPosts);
   if(!userPostsInfo) return;
 
   const renderModal = () => {
@@ -86,13 +86,13 @@ const MyPagePosts = ({user,userImage}) => {
 
 
 
-  const renderSection = (index) => {
+  const renderSection = () => {
     return (
       <div style={{width:(width+margin)*3+60}} >
           <h4>{userPostsInfo.length}개의 게시물이 있습니다.</h4>
           <br/>
           <PostDiv>
-              {userPostsInfo.map((v,i)=>(
+              {userPostsInfo.map((v:any,i:any)=>(
                 <div
                 key={i} 
                 className="contents"
