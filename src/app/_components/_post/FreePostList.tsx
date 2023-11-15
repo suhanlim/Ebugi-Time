@@ -39,6 +39,21 @@ const TitleContainer = styled.div`
 `;
 
 
+const PostContainer = styled.div`
+    display: flex;
+    padding: 16px 24px;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const Section = styled.section`
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
 
 const FreePostList = () => {
     const [postsData, setPostsData] = useState<PostData[]>([]);
@@ -71,11 +86,16 @@ const FreePostList = () => {
             </TitleContainer>
             <ul>
                 {postsData.map((post) => (
-                    <li key={post.postId}>
-                        <Link to={`/post/${post.postId}`}>
-                            {`${post.postTitle}`}
-                        </Link>
-                    </li>
+                    <Section>
+                        <li key={post.postId}>
+                            <Link to={`/post/${post.postId}`}>
+                                <p className='font-bold'>{post.postTitle}</p>
+                                <p>{post.postContent}</p>
+                                <p>{post.postedDate}</p>
+                            </Link>
+                        </li>
+                    </Section>
+                    
                 ))}
             </ul>
         </section>

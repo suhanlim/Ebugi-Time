@@ -53,10 +53,15 @@ const Post: React.FC<PostData> = () => {
 
     return (
         <>
-        <p>작성자 ID: {post.postUserId}</p>
-        <p><time dateTime={post.postedDate}>{post.postedDate}</time></p>
-        <b>{post.postTitle}</b>
-        <p>글 내용: {post.postContent}</p>
+            <p>작성자 ID: {post.postUserId}</p>
+            <p><time dateTime={post.postedDate}>{post.postedDate}</time></p>
+            <p className='text-2xl'>{post.postTitle}</p>
+            <p>
+                {post.postContent}
+                {post.postContent}
+                {post.postContent}
+                {post.postContent}
+            </p>
         </>
     );
 };

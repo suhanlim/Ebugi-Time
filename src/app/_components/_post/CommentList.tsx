@@ -3,10 +3,11 @@
 import React, { useState } from "react";
 import Comment from "./Comment";
 import styled from "styled-components";
+import { IoMdSend } from 'react-icons/io';
 
 const CommentInput = styled.textarea`
     width: 100%;
-    height: 100px; // 입력 필드의 높이를 늘림
+    height: 50px; // 입력 필드의 높이
     margin-bottom: 12px; // 버튼과의 간격
     padding: 8px;
     font-size: 16px;
@@ -16,7 +17,8 @@ const CommentInput = styled.textarea`
 `;
 
 const SubmitButton = styled.button`
-    padding: 10px 20px;
+    height: 50px; // 버튼의 높이를 입력창과 동일하게 설정
+    padding: 5px 10px;
     background-color: #007bff;
     border: none;
     border-radius: 4px;
@@ -41,6 +43,12 @@ interface CommentData {
 interface CommentListProps {
     data: CommentData[];
 }
+
+const CommentInputContainer = styled.div`
+    display: flex;
+    align-items: stretch; // 요소들이 컨테이너 높이에 맞게 늘어나도록 설정
+    gap: 0px; // 버튼과 입력 필드 사이의 간격 제거
+`;
 
 //댓글들에 대한 컨테이너 역할을 수행
 //추가로 댓글을 달 수도 있는 기능 작성 필요
@@ -79,14 +87,16 @@ const CommentList: React.FC<CommentListProps> = ({ data }) => {
                         commentedLiked = {comment.commentedLiked}/>
                 ))}
             </>
-            <div>
-            <CommentInput
+            <CommentInputContainer>
+                <CommentInput
                     value={newComment}
                     onChange={handleCommentChange}
                     placeholder="댓글을 입력하세요"
                 />
-                <SubmitButton onClick={handleSubmit}>댓글 달기</SubmitButton>
-            </div>
+                <SubmitButton onClick={handleSubmit}>
+                    <IoMdSend size="20px"/> {/* 아이콘 사용 */}
+                </SubmitButton>
+            </CommentInputContainer>
         </>
 
     );
