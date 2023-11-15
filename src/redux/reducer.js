@@ -6,6 +6,7 @@ const initialState = {
 };
 
 // 리듀서 함수
+// @ts-ignore
 function userReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
@@ -16,6 +17,7 @@ function userReducer(state = initialState, action) {
     case UPDATE_USER:
       return {
         user :{
+          // @ts-ignore
           ...state.user,
           userPosts: action.payload.post
         }
@@ -23,6 +25,7 @@ function userReducer(state = initialState, action) {
     case DELETE_USER:
       return {
         user :{
+          // @ts-ignore
           ...state.user,
           userPosts: action.payload.post
         }
