@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
+
+const PostSection = styled.section`
+    padding: 15px 15px 15px 15px;
+    border: 1px solid #e3e3e3;
+`;
+
 interface PostData{
+    postTitle: string;
     postId: number;
     postUserId: string;
     postedDate: string | undefined;
@@ -66,7 +73,7 @@ const FreePostList = () => {
                 {postsData.map((post) => (
                     <li key={post.postId}>
                         <Link to={`/post/${post.postId}`}>
-                            {`게시글 번호: ${post.postId}`}
+                            {`${post.postTitle}`}
                         </Link>
                     </li>
                 ))}

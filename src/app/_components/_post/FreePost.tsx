@@ -6,17 +6,25 @@ import CommentList from './CommentList'; //댓글 리스트
 import axios from 'axios';
 import styled from 'styled-components';
 
+const FreePostTitle = styled.section`
+    font-size: 24px;
+    color: #333;
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
 
 const Section = styled.section`
     max-width: 800px;
     margin: auto;
     background: #fff;
     padding: 20px;
+    border: 1px solid #e3e3e3;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-`;
-
-const Article = styled.article`
-    margin-bottom: 30px;
 `;
 
 const CommentSection = styled.div`
@@ -46,32 +54,9 @@ const CommentTitle = styled.h3`
 //댓글 객체에 들어갈 정보
 //댓글 작성자, 작성 일자, 좋아요 수
 
-/*
-posts": [
-        {
-            "postId" : 1,
-            "postUserId": "1",
-            "postedDate": "2023년 11월 03일",
-            "likedCount": 3,
-            "postContent": "자유게시판에 작성된 글 1의 내용입니다.",
-            "comment": [
-                {
-                    "userId": "1",
-                    "userComment": "집 가고 싶다",
-                    "commentDate": "2023년 11월 3일",
-                    "commentedLiked": 3
-                },
-                {
-                    "userId": "2",
-                    "userComment": "집 가고 싶다22",
-                    "commentDate": "2023년 11월 4일",
-                    "commentedLiked": 2
-                }
-            ]
-        }
-*/
 
 interface PostData{
+    postTitle: string;
     postId: number;
     postUserId: string;
     postedDate: string | undefined;
@@ -119,21 +104,25 @@ const FreePost = () => {
     }
 
     return (
-        <Section>
-            <Article>
-                <Post 
-                    postId={postData.postId} 
-                    postUserId={postData.postUserId}
-                    postedDate={postData.postedDate}
-                    postContent={postData.postContent}
-                    likedCount={postData.likedCount}
-                />
-                <CommentSection>
-                    <CommentTitle>댓글</CommentTitle>
+        <div>
+                <FreePostTitle>
+                    <b>자유 게시판</b>
+                </FreePostTitle>
+                <Section>
+                    <Post
+                        postTitle={postData.postTitle}
+                        postId={postData.postId} 
+                        postUserId={postData.postUserId}
+                        postedDate={postData.postedDate}
+                        postContent={postData.postContent}
+                        likedCount={postData.likedCount}
+                    />
+                </Section>
+                
+                <Section>
                     <CommentList data={postData.comment}/>
-                </CommentSection>
-            </Article>
-        </Section>
+                </Section>
+        </div>
     );
 }
 

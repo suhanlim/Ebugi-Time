@@ -10,11 +10,17 @@ export default function Page() {
   return (
     <Router>
       <Navigation/> 
-      <Routes>
-        <Route path="/" element={<FreePostList />} />
-        <Route path="/post/:postId" element={<FreePost />} /> {/* FreePost 컴포넌트로 연결되어야 함 */}
-      </Routes>
-      <MultipurposePanel/>
+        <div className="flex flex-row">
+          <div className="basis-4/5">
+            <Routes>
+              <Route path="/" element={<FreePostList />} />
+              <Route path="/post/:postId" element={<FreePost />} /> {/* FreePost 컴포넌트로 연결되어야 함 */}
+            </Routes>
+          </div>
+          <div className="basis-1/5">
+            <MultipurposePanel/>
+          </div>
+        </div>
     </Router>
   )
 }

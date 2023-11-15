@@ -7,7 +7,6 @@ import styled from 'styled-components';
 const PostContainer = styled.div`
     background: #f9f9f9;
     padding: 1rem;
-    margin-bottom: 1rem;
     border-radius: 4px;
 `;
 
@@ -17,6 +16,7 @@ const PostTitle = styled.h2`
 `;
 
 interface PostData {
+    postTitle: string;
     postId: number;
     postUserId: string;
     postedDate: string | undefined;
@@ -53,16 +53,10 @@ const Post: React.FC<PostData> = () => {
 
     return (
         <>
-            <PostTitle>
-                <h2>게시글 번호: {post.postId}</h2>
-            </PostTitle>
-
-            <PostContainer>
-                <p>작성자 ID: {post.postUserId}</p>
-                <p>글 내용: {post.postContent}</p>
-                <time dateTime={post.postedDate}>{post.postedDate}</time>
-                <p>좋아요 수: {post.likedCount}</p>
-            </PostContainer>
+        <p>작성자 ID: {post.postUserId}</p>
+        <p><time dateTime={post.postedDate}>{post.postedDate}</time></p>
+        <b>{post.postTitle}</b>
+        <p>글 내용: {post.postContent}</p>
         </>
     );
 };

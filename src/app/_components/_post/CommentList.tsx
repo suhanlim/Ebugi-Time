@@ -4,12 +4,6 @@ import React, { useState } from "react";
 import Comment from "./Comment";
 import styled from "styled-components";
 
-
-// 스타일 컴포넌트 정의
-const CommentSection = styled.section`
-    margin: 16px 0;
-`;
-
 const CommentInput = styled.textarea`
     width: 100%;
     height: 100px; // 입력 필드의 높이를 늘림
@@ -74,16 +68,16 @@ const CommentList: React.FC<CommentListProps> = ({ data }) => {
     };
 
     return (
-        <CommentSection>
+        <>
             <>
-            {comments.map((comment,index) => (
-                <Comment 
-                    index = {index}
-                    userId = {comment.userId}
-                    userComment = {comment.userComment}
-                    commentDate = {comment.commentDate}
-                    commentedLiked = {comment.commentedLiked}/>
-            ))}
+                {comments.map((comment,index) => (
+                    <Comment 
+                        index = {index}
+                        userId = {comment.userId}
+                        userComment = {comment.userComment}
+                        commentDate = {comment.commentDate}
+                        commentedLiked = {comment.commentedLiked}/>
+                ))}
             </>
             <div>
             <CommentInput
@@ -93,7 +87,8 @@ const CommentList: React.FC<CommentListProps> = ({ data }) => {
                 />
                 <SubmitButton onClick={handleSubmit}>댓글 달기</SubmitButton>
             </div>
-        </CommentSection>
+        </>
+
     );
 }
 
