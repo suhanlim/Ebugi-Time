@@ -98,7 +98,6 @@ const CommentList: React.FC<CommentListProps> = ({ data }) => {
                 </SubmitButton>
             </CommentInputContainer>
         </>
-
     );
 }
 
