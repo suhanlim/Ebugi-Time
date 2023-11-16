@@ -2,18 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
-
-const PostContainer = styled.div`
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 4px;
-`;
-
-const PostTitle = styled.h2`
-    margin: 0;
-    color: #333;
-`;
 
 interface PostData {
     postTitle: string;
@@ -34,7 +22,7 @@ const Post: React.FC<PostData> = () => {
                 const response = await axios.get('/posts/FreePost.json'); 
                 const postArray: PostData[] = response.data.posts
                 // postId와 일치하는 게시글 찾기
-                const post = postArray.find(p => p.postId.toString() === postId); 
+                const post = postArray.find(p => p.postId.toString() === postId) ?? null;
                 setPost(post || null)
                 console.log(postArray);
                 console.log(post)

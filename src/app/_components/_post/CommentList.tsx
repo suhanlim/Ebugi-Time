@@ -79,7 +79,7 @@ const CommentList: React.FC<CommentListProps> = ({ data }) => {
         <>
             <>
                 {comments.map((comment,index) => (
-                    <Comment 
+                    <Comment key={index}
                         index = {index}
                         userId = {comment.userId}
                         userComment = {comment.userComment}

@@ -27,23 +27,6 @@ const Section = styled.section`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
-const CommentSection = styled.div`
-    background: #f9f9f9;
-    padding: 10px 20px;
-`;
-
-const Title = styled.h1`
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-`;
-
-const CommentTitle = styled.h3`
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 15px;
-`;
-
 //어떤 유저가 작성한, 어떤 글인지 얻어와야함
 //포스트 아이디(글 아이디)
 //포스트 json파일 작성 필요
@@ -83,7 +66,7 @@ const FreePost = () => {
         const fetchData = async () => {
             try {
                 // 전체 게시글 데이터 불러오기
-                const response = await axios.get('/posts/FreePost.json'); 
+                const response = await axios.get<PostData[]>('/posts/FreePost.json'); 
                 const postArray: PostData[] = response.data.posts
                 const post = postArray.find(p => p.postId.toString() === postId); // URL의 postId와 일치하는 게시글 찾기
                 if (post) {

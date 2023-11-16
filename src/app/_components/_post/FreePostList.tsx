@@ -5,11 +5,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 
-const PostSection = styled.section`
-    padding: 15px 15px 15px 15px;
-    border: 1px solid #e3e3e3;
-`;
-
 interface PostData{
     postTitle: string;
     postId: number;
@@ -36,14 +31,6 @@ const TitleContainer = styled.div`
     border-radius: 4px;
     border: 1px solid #d6d6d6;
     box-sizing: border-box;
-`;
-
-
-const PostContainer = styled.div`
-    display: flex;
-    padding: 16px 24px;
-    justify-content: space-between;
-    align-items: center;
 `;
 
 const Section = styled.section`
