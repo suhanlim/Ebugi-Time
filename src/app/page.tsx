@@ -7,7 +7,7 @@ import { PersonalPanel } from "./_components/_home/personalPanel";
 import { MultipurposePanel } from "./_components/_common/multipurposePanel";
 import { NavigationBar } from "./_components/_common/navigationBar";
 import { CollegePanelSwiper } from "./_components/_home/collegePanelSwiper";
-
+import { SubmenuSwiper } from "./_components/_home/submenuSwiper";
 export const metadata: Metadata = {
   title: {
     template: "%s | Home",
@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <main className="bg-white">
       <NavigationBar />
-      <Submenu />
+      <SubmenuSwiper />
       <div className="flex flex-row justify-center">
         <PersonalPanel />
         <CollegePanelSwiper />
