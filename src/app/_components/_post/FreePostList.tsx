@@ -15,6 +15,10 @@ interface PostData{
     comment: CommentData[];
 }
 
+interface PostsResponse {
+    posts: PostData[];
+}
+
 // Comment 데이터 타입 정의
 interface CommentData {
     userId: string;
@@ -50,10 +54,12 @@ const FreePostList = () => {
             try {
                 console.log("데이터 로딩중")
                 // 모든 게시글을 포함하는 JSON 파일
-                const response = await axios.get('/posts/FreePost.json'); 
-                const postArray: PostData[] = response.data.posts
-                setPostsData(postArray);
-                console.log(response.data.posts);
+                // const response = await axios.get('/posts/FreePost.json'); 
+                // const postArray: PostData[] = response.data.posts
+                // setPostsData(postArray);
+                // console.log(response.data.posts);
+                const response = await axios.get<PostsResponse>('/posts/FreePost.json');
+                setPostsData(response.data.posts);
             } catch (error) {
                 console.error('데이터를 가져오는 중 오류 발생:', error);
             }
@@ -73,8 +79,8 @@ const FreePostList = () => {
             </TitleContainer>
             <ul>
                 {postsData.map((post) => (
-                    <Section>
-                        <li key={post.postId}>
+                    <Section key={post.postId}>
+                        <li>
                             <Link to={`/post/${post.postId}`}>
                                 <p className='font-bold'>{post.postTitle}</p>
                                 <p>{post.postContent}</p>

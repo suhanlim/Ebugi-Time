@@ -56,31 +56,41 @@ interface CommentData {
     commentedLiked: number;
 }
 
+interface PostsResponse {
+    posts: PostData[];
+}
 
 const FreePost = () => {
-    const { postId } = useParams(); // URL로부터 글 아이디 얻어오기
-
+    const { postId } = useParams<{ postId?: string }>(); // URL로부터 글 아이디 얻어오기
+    const numericPostId = postId ? parseInt(postId, 10) : null; // postId를 숫자로 변환
     const [postData, setPostData] = useState<PostData | null>(null);
+
+    // const { postId } = useParams(); // URL로부터 글 아이디 얻어오기
+
+    // const [postData, setPostData] = useState<PostData | null>(null);
+    
     
     useEffect(() => {
         const fetchData = async () => {
             try {
                 // 전체 게시글 데이터 불러오기
-                const response = await axios.get<PostData[]>('/posts/FreePost.json'); 
+                const response = await axios.get<PostsResponse>('/posts/FreePost.json'); 
                 const postArray: PostData[] = response.data.posts
                 const post = postArray.find(p => p.postId.toString() === postId); // URL의 postId와 일치하는 게시글 찾기
-                if (post) {
-                    setPostData(post);
-                } else {
-                    setPostData(null); // post가 undefined인 경우 null로 설정
-                }
+                // if (post) {
+                //     setPostData(post);
+                // } else {
+                //     setPostData(null); // post가 undefined인 경우 null로 설정
+                // }
+                setPostData(post ?? null); // post가 undefined인 경우 null로 설정
             } catch (error) {
                 console.error('데이터를 가져오는 중 오류 발생:', error);
             }
         };
 
         fetchData(); // 비동기 처리
-    }, [postId]);
+    //}, [postId]);
+    },[numericPostId]);
 
     if (!postData) {
         return <div>데이터를 로딩 중입니다... by FreePost</div>;
@@ -88,23 +98,16 @@ const FreePost = () => {
 
     return (
         <div>
-                <FreePostTitle>
-                    <b>자유 게시판</b>
-                </FreePostTitle>
-                <Section>
-                    <Post
-                        postTitle={postData.postTitle}
-                        postId={postData.postId} 
-                        postUserId={postData.postUserId}
-                        postedDate={postData.postedDate}
-                        postContent={postData.postContent}
-                        likedCount={postData.likedCount}
-                    />
-                </Section>
-                
-                <Section>
-                    <CommentList data={postData.comment}/>
-                </Section>
+            <FreePostTitle>
+                <b>자유 게시판</b>
+            </FreePostTitle>
+            <Section>
+                <Post/>
+            </Section>
+            
+            <Section>
+                <CommentList data={postData?.comment}/>
+            </Section>
         </div>
     );
 }
