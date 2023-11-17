@@ -1,0 +1,27 @@
+
+[
+    {
+    "name": "김한성",
+    "entranceYear" : "2021",
+    "nickname" : "한성",
+    "email" : "hansung@hansung.com",
+    "password" : "hansung1234"
+},
+
+{
+    "name": "김상상",
+    "entranceYear" : "2022",
+    "nickname" : "상상",
+    "email" : "sangsang@hansung.com",
+    "password" : "sangsang1234"
+},
+
+{
+    "name": "김부기",
+    "entranceYear" : "2023",
+    "nickname" : "부기",
+    "email" : "boogie@hansung.com",
+    "password" : "boogie1234"
+}
+]
+
