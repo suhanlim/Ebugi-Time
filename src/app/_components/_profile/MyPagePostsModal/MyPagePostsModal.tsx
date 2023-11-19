@@ -57,7 +57,7 @@ const MyPagePostsModal = () => {
   const userPostsInfo = useSelector((state: any) => state.user.userPosts);
   const dispatch = useDispatch();
   // 유저 상태를 dispatch 한다. 유저가 삭제 버튼 누르면 실행된다.
-  const handleDeleteUser = (e: any) => {
+  const handleDeleteUser = (e: Event) => {
     if (window.confirm("삭제하겠습니까?")) {
       const newUserInfo = userPostsInfo.filter((post: any) => post != props);
       dispatch(deleteUser({ action: DELETE_USER, post: newUserInfo })); // 유저 삭제 액션 디스패치

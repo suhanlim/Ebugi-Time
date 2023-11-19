@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
+import { user_actions } from "~/redux/actions";
+import { type UserPost } from "~/app";
 
 const CommentsDiv = styled.div`
   postiion: relative;
@@ -66,7 +68,7 @@ const MyPagePostsComments = ({ props, setModal }: any) => {
 
   // 댓글 입력/수정/삭제 시 json에 업데이트
   useEffect(() => {
-    const newUserInfo = userPostsInfo.map((post: any) => {
+    const newUserInfo: UserPost = userPostsInfo.map((post: UserPost) => {
       if (post == props) {
         return {
           ...post,
@@ -75,7 +77,7 @@ const MyPagePostsComments = ({ props, setModal }: any) => {
       } else return post;
     });
     console.log(newUserInfo);
-    dispatch(updateUser({ action: UPDATE_USER, post: newUserInfo })); // 유저 업데이트 액션 디스패치
+    dispatch(user_actions.updateUser(newUserInfo)); // 유저 업데이트 액션 디스패치
   }, [commentList]);
 
   return (

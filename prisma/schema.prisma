@@ -3,8 +3,10 @@
 // postgresql env("DATABASE_URL")
 
 datasource db {
+  // provider     = "mysql"
+  // url          = env("DATABASE_URL")
   provider     = "sqlite"
-  url          = "file:./db.sqlite"
+  url          = "file:./db.sqlite?socket_timeout=4000"
   relationMode = "prisma"
 }
 
@@ -12,38 +14,65 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Category {
+  id   String @id @default("open")
+  name String
+}
+
 model Post {
   id          Int       @id @default(autoincrement())
-  name        String
-  likes       Int
+  title       String
+  contents    String
+  category    String
+  is_deleted  Boolean
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   createdBy   User      @relation(fields: [createdById], references: [id])
   createdById String
-  comment     Comment[]
+  comments    Comment[]
+  scraps      Scrap[]
+  likes       Int
 
-  @@index([name])
+  @@index([createdById])
 }
 
 model Comment {
-  id          Int      @id @default(autoincrement())
-  user        User     @relation(fields: [userId], references: [id])
-  userId      String   @unique
-  post        Post     @relation(fields: [postId], references: [id])
-  postId      Int
-  successorId Int?     @unique
-  successor   Comment? @relation("CommentHistory", fields: [successorId], references: [id], onDelete: SetNull, onUpdate: Cascade)
-  predecessor Comment? @relation("CommentHistory")
+  id        Int      @id @default(autoincrement())
+  contents  String
+  user      User     @relation(fields: [user_id], references: [id])
+  user_id   String
+  post      Post     @relation(fields: [post_id], references: [id])
+  post_id   Int
+  createdAt DateTime @default(now())
+  likes     Int
+
+  @@index([post_id, user_id])
 }
 
 model Like {
-  id Int @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
+  user        User   @relation(fields: [user_id], references: [id])
+  user_id     String
+  target_type String
+  target_id   Int
+
+  @@index([user_id])
+}
+
+model Scrap {
+  id      Int    @id @default(autoincrement())
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+  post    Post   @relation(fields: [post_id], references: [id])
+  post_id Int
+
+  @@index([user_id])
 }
 
 // Necessary for Next auth
 model Account {
   id                String  @id @default(uuid())
-  userId            String
+  userId            String  @unique
   type              String
   provider          String
   providerAccountId String
@@ -65,18 +94,24 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 model User {
   id            String    @id @default(uuid())
-  name          String?
-  email         String?   @unique
+  name          String
+  grade         String
+  email         String    @unique
   emailVerified DateTime?
-  image         String?
+  nickname      String
+  image_url     String?
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
-  Comment       Comment[]
+  comments      Comment[]
+  likes         Like[]
+  scraps        Scrap[]
 }
 
 model VerificationToken {
@@ -86,3 +121,8 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+//enum Target_type {
+//  POST
+//  COMMENT
+//}
