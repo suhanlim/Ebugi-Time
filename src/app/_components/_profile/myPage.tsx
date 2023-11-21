@@ -126,7 +126,7 @@ function MyPage() {
           </h2>
           <hr />
           이름 : {profileInfo.data?.name} <br />
-          학과 학년 : {profileInfo.data?.grade} <br />
+          학번 : {profileInfo.data?.grade} <br />
           소개글 : {profileInfo.data?.introduction} <br />
           이메일 : {profileInfo.data?.email}
         </section>

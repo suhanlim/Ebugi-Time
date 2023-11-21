@@ -1,77 +1,117 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+"use client";
+import { type Scrap } from "@prisma/client";
+import Image from "next/image";
+import { Avatar, Divider } from "react-daisyui";
+import styled from "styled-components";
+import dayjs from "~/utils/dayjs";
+
+const ModalContents = styled.div`
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  .modalPostTop {
+    justify-content: center;
+  }
+`;
 
 interface PostData {
+  postTitle: string;
+  postId: number;
+  postUserId: string;
+  postedDate: string | undefined;
+  postContent: string;
+}
+
+const Post = (props: {
+  post: {
+    postUserImage_url: string | null;
+    postImage_url: string;
+    postUserNickname: string;
+    postedDate: Date;
     postTitle: string;
-    postId: number;
-    postUserId: string;
-    postedDate: string | undefined;
     postContent: string;
-    likedCount: number;
-}
+    postLikes: number;
+    postScrap: Scrap[];
+  };
+}) => {
+  const post = props.post;
 
-interface PostsResponse {
-    posts: PostData[];
-}
-
-const Post: React.FC = () => {
-    // const { postId } = useParams<{ postId: string }>();
-    // const [post, setPost] = useState<PostData | null>(null);
-
-    const { postId } = useParams<{ postId?: string }>();
-    const numericPostId = postId ? parseInt(postId, 10) : null;
-    const [post, setPost] = useState<PostData | null>(null);
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await axios.get('/posts/FreePost.json'); 
-    //             const postArray: PostData[] = response.data.posts
-    //             // postId와 일치하는 게시글 찾기
-    //             const post = postArray.find(p => p.postId.toString() === postId) ?? null;
-    //             setPost(post || null)
-    //             console.log(postArray);
-    //             console.log(post)
-
-    //         } catch (error) {
-    //             console.error('데이터를 가져오는 중 오류 발생:', error);
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, [postId]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get<PostsResponse>('/posts/FreePost.json'); 
-                const postArray = response.data.posts;
-                const foundPost = postArray.find(p => p.postId === numericPostId);
-                setPost(foundPost ?? null);
-            } catch (error) {
-                console.error('데이터를 가져오는 중 오류 발생:', error);
+  return (
+    <ModalContents>
+      <div className="modalPostTop">
+        {false ? (
+          <input
+            className="input input-bordered w-full max-w-xs"
+            value={post.postTitle}
+            onChange={() => console.log("onChangeTitle")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+              }
+            }}
+          />
+        ) : (
+          <div className="text- font-bold">{post.postTitle} </div>
+        )}
+        <div style={{ fontSize: "12px" }}>
+          {dayjs(post.postedDate).format("L LT")} 작성
+        </div>
+        <Divider />
+      </div>
+      <div className="container">
+        <img src={post.postImage_url} className="h-fit w-fit" />
+      </div>
+      <div
+        style={{
+          display: "block",
+          marginBottom: "30px",
+          marginTop: "30px",
+          fontSize: "18px",
+          width: "90%",
+        }}
+      >
+        {false ? (
+          <input
+            className="input input-bordered w-full max-w-xs"
+            value={post.postContent}
+            onChange={() => console.log("onChangeDescription")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+              }
+            }}
+          />
+        ) : (
+          <p>{post.postContent}</p>
+        )}
+        <Divider />
+        <div className="mb-4 flex flex-row items-center pb-2">
+          <Avatar
+            size="sm"
+            className="py-2 pl-4 pr-2"
+            border
+            borderColor="secondary"
+            shape="circle"
+            src={post.postUserImage_url}
+          />
+          <em className="flex-1 text-xl">{post.postUserNickname}</em>
+        </div>
+        <div className="flex flex-row items-center justify-center gap-3 py-2">
+          <button
+            className={false ? "btn btn-error" : "btn btn-error btn-outline"}
+          >
+            추천 : {post.postLikes}
+          </button>
+          <button
+            className={
+              false ? "btn btn-warning" : "btn btn-warning btn-outline"
             }
-        };
-
-        fetchData();
-    }, [numericPostId]);
-
-    if (!post) {
-        return <div>데이터를 로딩 중입니다...by Post</div>;
-    }
-
-    return (
-        <>
-            <p>작성자 ID: {post.postUserId}</p>
-            <p><time dateTime={post.postedDate}>{post.postedDate}</time></p>
-            <p className='text-2xl'>{post.postTitle}</p>
-            <p>
-                {post.postContent}
-            </p>
-        </>
-    );
+          >
+            스크랩 : {post.postScrap.length}
+          </button>
+        </div>
+      </div>
+    </ModalContents>
+  );
 };
 
 export default Post;

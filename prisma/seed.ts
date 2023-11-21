@@ -1,20 +1,20 @@
 import { db } from "~/server/db";
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker/locale/ko";
 const prisma = db;
-
-function pause(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 async function main() {
   const precommit_users = Array.from({ length: 10 }, () => {
+    const nameSegments = {
+      lastName: faker.person.lastName(),
+      firstName: faker.person.firstName(),
+    };
     return prisma.user.create({
       data: {
-        name: faker.person.fullName(),
+        name: `${nameSegments.lastName}${nameSegments.firstName}`,
         email: faker.internet.email(),
         introduction: faker.lorem.sentence(),
         grade: faker.number.int({ min: 1600000, max: 2400000 }).toString(),
-        nickname: faker.internet.userName(),
+        nickname: faker.internet.displayName(nameSegments),
         image_url: faker.image.avatar(),
       },
     });
@@ -54,7 +54,7 @@ async function main() {
   };
   type Category = keyof typeof boards;
 
-  Object.entries(boards).map((v) => {
+  const seedCategories = Object.entries(boards).map((v) => {
     return prisma.category.create({
       data: {
         id: v[0],
@@ -63,16 +63,20 @@ async function main() {
     });
   });
 
+  for await (const categoryEntry of seedCategories) {
+    categoryEntry;
+  }
+
   function makePrecommitPost(userId: string) {
     return prisma.post.create({
       data: {
-        title: faker.lorem.text(),
+        title: faker.lorem.sentence({ min: 3, max: 5 }),
         contents: faker.lorem.paragraph(),
         category:
           Object.keys(boards)[
             Math.floor(Math.random() * Object.keys(boards).length)
           ] ?? "open",
-        is_deleted: faker.datatype.boolean(),
+        is_deleted: false,
         createdAt: faker.date.past(),
         updatedAt: faker.date.recent(),
         likes: faker.number.int(20),

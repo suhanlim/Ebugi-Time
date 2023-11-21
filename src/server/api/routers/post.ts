@@ -22,6 +22,7 @@ export const postRouter = createTRPCRouter({
         where: { createdById: input.id },
         select: {
           likes: true,
+          category: true,
           scraps: true,
           comments: true,
           title: true,

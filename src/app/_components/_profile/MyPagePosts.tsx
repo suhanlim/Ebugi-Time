@@ -4,6 +4,8 @@ import React, { useRef, useState, useCallback } from "react";
 import { Modal } from "react-daisyui";
 import { useAppDispatch, useAppSelector } from "~/redux/hooks";
 import { api } from "~/trpc/react";
+import Post from "../_post/Post";
+import CommentList, { type CommentData } from "../_post/CommentList";
 
 const width = 150;
 const margin = 20;
@@ -61,14 +63,17 @@ const ModalContainer = styled.div`
 
 export function MyPagePosts({ userId }: { userId: string }) {
   const [hover, setHover] = useState(-1);
+  const myInfo = api.user.getProfileInfo.useQuery({ userId: userId }).data;
   const userPostsInfo = api.post.getOwnPosts.useQuery({ id: userId });
   const modalRef = useRef<HTMLDialogElement>(null);
+  const [selectedPost, setSelectedPost] = useState(0);
+  const modalPost = userPostsInfo.data?.at(selectedPost);
 
   const handleShow = useCallback(() => {
     modalRef.current?.showModal();
   }, [modalRef]);
 
-  if (!userPostsInfo) return;
+  if (!userPostsInfo || !myInfo) return;
   const renderSection = () => {
     return (
       <div style={{ width: (width + margin) * 3 + 60 }}>
@@ -80,7 +85,10 @@ export function MyPagePosts({ userId }: { userId: string }) {
               key={i}
               className="contents"
               onMouseEnter={() => setHover(i)}
-              onClick={handleShow}
+              onClick={() => {
+                setSelectedPost(i);
+                handleShow();
+              }}
             >
               <img
                 src={v.image_url ?? "../../../../public/assets/logo.png"}
@@ -121,8 +129,35 @@ export function MyPagePosts({ userId }: { userId: string }) {
       </div>
       {renderSection()}
       <Modal ref={modalRef} backdrop>
-        <Modal.Header className="font-bold">Hello!</Modal.Header>
-        <Modal.Body>Press ESC key or click outside to close</Modal.Body>
+        <Modal.Header className="font-bold">
+          {modalPost?.category ?? ""}
+        </Modal.Header>
+        <Modal.Body>
+          {modalPost ? (
+            <Post
+              post={{
+                postUserImage_url: myInfo.image_url,
+                postImage_url: modalPost.image_url,
+                postUserNickname: myInfo.nickname,
+                postedDate: modalPost.updatedAt,
+                postTitle: modalPost.title,
+                postContent: modalPost.contents,
+                postLikes: modalPost.likes,
+                postScrap: modalPost.scraps,
+              }}
+            />
+          ) : undefined}
+          <CommentList
+            data={modalPost?.comments.map<CommentData>((v) => {
+              return {
+                userId: v.user_id,
+                commentDate: v.createdAt.toString(),
+                userComment: v.contents,
+                commentedLiked: v.likes,
+              };
+            })}
+          />
+        </Modal.Body>
       </Modal>
     </>
   );
