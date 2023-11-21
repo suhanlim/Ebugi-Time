@@ -1,11 +1,9 @@
 "use client";
-import Image from "next/image";
 import styled from "styled-components";
-import React from "react";
-import { type User } from "~/app";
+import React, { useRef, useState, useCallback } from "react";
+import { Modal } from "react-daisyui";
 import { useAppDispatch, useAppSelector } from "~/redux/hooks";
 import { api } from "~/trpc/react";
-import MyPagePostsModal from "./MyPagePostsModal/MyPagePostsModal";
 
 const width = 150;
 const margin = 20;
@@ -62,23 +60,15 @@ const ModalContainer = styled.div`
 `;
 
 export function MyPagePosts({ userId }: { userId: string }) {
-  const modal = false;
-  const hover = -1;
+  const [hover, setHover] = useState(-1);
   const userPostsInfo = api.post.getOwnPosts.useQuery({ id: userId });
-  // const userPostsInfo = useAppSelector((state) => state.user.userPosts);
-  // console.log(userPostsInfo);
+  const modalRef = useRef<HTMLDialogElement>(null);
+
+  const handleShow = useCallback(() => {
+    modalRef.current?.showModal();
+  }, [modalRef]);
 
   if (!userPostsInfo) return;
-
-  const renderModal = () => {
-    if (modal)
-      return (
-        <ModalContainer onClick={() => console.log("setModal(false)")}>
-          <div> MyPagePostsModal locate</div>
-        </ModalContainer>
-      );
-  };
-
   const renderSection = () => {
     return (
       <div style={{ width: (width + margin) * 3 + 60 }}>
@@ -89,17 +79,18 @@ export function MyPagePosts({ userId }: { userId: string }) {
             <div
               key={i}
               className="contents"
-              onMouseEnter={() => console.log("setHover(i)")}
-              onClick={() => console.log("setModal(true)")}
+              onMouseEnter={() => setHover(i)}
+              onClick={handleShow}
             >
               <img
-                src={v.image_url}
+                src={v.image_url ?? "../../../../public/assets/logo.png"}
                 style={{
                   position: "absolute",
                   width: width,
                   height: width,
                   boxShadow: "0px 0px 2px #000",
                 }}
+                alt="post picture"
                 className={`${hover == i ? "hover" : "none"}`}
               />
               {hover == i ? (
@@ -129,7 +120,10 @@ export function MyPagePosts({ userId }: { userId: string }) {
         </h1>
       </div>
       {renderSection()}
-      {renderModal()}
+      <Modal ref={modalRef} backdrop>
+        <Modal.Header className="font-bold">Hello!</Modal.Header>
+        <Modal.Body>Press ESC key or click outside to close</Modal.Body>
+      </Modal>
     </>
   );
 }

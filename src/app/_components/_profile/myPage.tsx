@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import styled from "styled-components";
 import { api } from "~/trpc/react";
@@ -97,6 +97,7 @@ function MyPage() {
   // URL에서 유저 이름을 추출
   const path: string = usePathname();
   const id: string = path.split("/")[2] ?? " ";
+  const [btnIndex, setBtnIndex] = useState(0);
 
   const profileInfo = api.user.getProfileInfo.useQuery({ userId: id });
 
@@ -131,9 +132,24 @@ function MyPage() {
         </section>
       </MyPageHeader>
       <MyPageContents>
-        <button>게시물</button>
-        <button>댓글</button>
-        <button>친구</button>
+        <button
+          onClick={() => setBtnIndex(0)}
+          className={btnIndex == 0 ? "selected" : ""}
+        >
+          게시물
+        </button>
+        <button
+          onClick={() => setBtnIndex(1)}
+          className={btnIndex == 1 ? "selected" : ""}
+        >
+          댓글
+        </button>
+        <button
+          onClick={() => setBtnIndex(2)}
+          className={btnIndex == 2 ? "selected" : ""}
+        >
+          친구
+        </button>
       </MyPageContents>
       <br />
       <MyPagePosts userId={id} />
