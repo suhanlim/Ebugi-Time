@@ -1,0 +1,345 @@
+{
+  "userId":2,
+    "id": "b",
+    "password": "b",
+    "name": "유저2",
+    "grade": "컴퓨터공학과 2학년",
+    "introduce": "대충소개글2",
+    "email": "user2@hansung.edu",
+    "userImage":"",
+    "userPosts": [
+        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },
+        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":10,
+          "scrapCount":5,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"그러게",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"그러게222",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"그러게333",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"심심하다",
+          "description":"대충 게시글 내용",
+          "image":"/images/image2.png",
+          "date":"2023-11-05 오후 3:00"
+        }
+    ]
+        
+}
