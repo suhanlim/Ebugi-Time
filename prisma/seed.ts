@@ -12,6 +12,7 @@ async function main() {
       data: {
         name: faker.person.fullName(),
         email: faker.internet.email(),
+        introduction: faker.lorem.sentence(),
         grade: faker.number.int({ min: 1600000, max: 2400000 }).toString(),
         nickname: faker.internet.userName(),
         image_url: faker.image.avatar(),
@@ -76,6 +77,7 @@ async function main() {
         updatedAt: faker.date.recent(),
         likes: faker.number.int(20),
         createdBy: { connect: { id: userId } },
+        image_url: faker.image.avatar(),
       },
     });
   }

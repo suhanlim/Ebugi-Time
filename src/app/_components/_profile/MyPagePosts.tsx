@@ -1,9 +1,11 @@
+"use client";
+import Image from "next/image";
 import styled from "styled-components";
-import MyPagePostsModal from "./MyPagePostsModal/MyPagePostsModal";
-import React, { EventHandler, useEffect, useMemo, useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import { type User } from "~/app";
 import { useAppDispatch, useAppSelector } from "~/redux/hooks";
+import { api } from "~/trpc/react";
+import MyPagePostsModal from "./MyPagePostsModal/MyPagePostsModal";
 
 const width = 150;
 const margin = 20;
@@ -59,34 +61,20 @@ const ModalContainer = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `;
 
-const MyPagePosts = ({
-  user,
-  userImage,
-}: {
-  user: string;
-  userImage: Pick<User, "userImage">;
-}) => {
-  const [hover, setHover] = useState(-1);
-  const [modal, setModal] = useState(false);
-
-  useEffect(() => {
-    if (modal == false) setHover(-1);
-  }, [modal]);
-
-  const userPostsInfo = useAppSelector((state) => state.user.userPosts);
+export function MyPagePosts({ userId }: { userId: string }) {
+  const modal = false;
+  const hover = -1;
+  const userPostsInfo = api.post.getOwnPosts.useQuery({ id: userId });
+  // const userPostsInfo = useAppSelector((state) => state.user.userPosts);
+  // console.log(userPostsInfo);
 
   if (!userPostsInfo) return;
 
   const renderModal = () => {
-    if (modal == true)
+    if (modal)
       return (
-        <ModalContainer onClick={() => setModal(false)}>
-          <MyPagePostsModal
-            user={user}
-            props={userPostsInfo.at(hover)}
-            userImage={userImage}
-            setModal={setModal}
-          />
+        <ModalContainer onClick={() => console.log("setModal(false)")}>
+          <div> MyPagePostsModal locate</div>
         </ModalContainer>
       );
   };
@@ -94,18 +82,18 @@ const MyPagePosts = ({
   const renderSection = () => {
     return (
       <div style={{ width: (width + margin) * 3 + 60 }}>
-        <h4>{userPostsInfo.length}개의 게시물이 있습니다.</h4>
+        <h4>{userPostsInfo.data?.length}개의 게시물이 있습니다.</h4>
         <br />
         <PostDiv>
-          {userPostsInfo.map((v, i) => (
+          {userPostsInfo.data?.map((v, i) => (
             <div
               key={i}
               className="contents"
-              onMouseEnter={() => setHover(i)}
-              onClick={() => setModal(true)}
+              onMouseEnter={() => console.log("setHover(i)")}
+              onClick={() => console.log("setModal(true)")}
             >
               <img
-                src={v.image}
+                src={v.image_url}
                 style={{
                   position: "absolute",
                   width: width,
@@ -119,7 +107,7 @@ const MyPagePosts = ({
                   style={{ position: "relative" }}
                   className={`${hover == i ? "hover" : "none"}`}
                 >
-                  추천 수 : {v.likeCount}
+                  추천 수 : {v.likes}
                   <br />
                   댓글 : {v.comments.length}
                 </div>
@@ -144,6 +132,4 @@ const MyPagePosts = ({
       {renderModal()}
     </>
   );
-};
-
-export default MyPagePosts;
+}

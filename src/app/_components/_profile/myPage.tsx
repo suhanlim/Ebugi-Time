@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
+"use client";
+import React from "react";
 import { usePathname } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 import styled from "styled-components";
-
-import MyPagePosts from "./MyPagePosts";
-//import MyPagePosts from './MyPagePosts';
-//import MyPageComments from './MyPageComments';
-//import MyPageFriends from './MyPageFriends';
-//import Button from 'react-bootstrap/Button';
-
-import { setUser } from "~/redux/actions";
+import { api } from "~/trpc/react";
+import { MyPagePosts } from "./MyPagePosts";
 
 const MyPageContainer = styled.div`
   display: flex;
@@ -99,65 +92,14 @@ const MyPageContents = styled.div`
     font-size: 20px;
   }
 `;
+
 function MyPage() {
   // URL에서 유저 이름을 추출
   const path: string = usePathname();
-  const user = "user" + path.split("/")[2];
-  //console.log(user.push(`/`));
+  const id: string = path.split("/")[2] ?? " ";
 
-  // 유저 정보
-  const [userData, setUserData]: any = useState();
+  const profileInfo = api.user.getProfileInfo.useQuery({ userId: id });
 
-  // 유저 이미지
-  //const [userImage, setUserImage] = useState();
-  const [userImage, setUserImage] = useState();
-
-  // 게시물, 댓글, 스토리 몇 번째 인덱스인지 저장
-  const [selecteIndex, setSelectedIndex] = useState(0);
-
-  const dispatch = useDispatch();
-  const data = useSelector((state: any) => state.user);
-
-  const handleFileChange = (e: any) => {
-    const file = e.target.files[0];
-    if (file) {
-      // 이미지 파일을 미리보기로 표시하기 위해 URL.createObjectURL 사용
-      const imageUrl: any = URL.createObjectURL(file);
-      setUserImage(imageUrl);
-    }
-  };
-
-  // 파일 선택 input 엘리먼트를 참조하기 위한 함수
-  const openFileInput = () => {
-    document.getElementById("fileInput")?.click();
-  };
-
-  useEffect(() => {
-    // JSON 파일 읽어오기
-    axios
-      .get(`/users/${user}.json`)
-      .then((response) => {
-        setUserData(response.data);
-
-        // 유저 데이터를 설정하고 스토어에 디스패치
-        const userData = response.data;
-        dispatch(setUser(userData));
-
-        setUserImage(userData.userImage);
-      })
-      .catch((error) => {
-        console.error("데이터를 가져오는 중 오류 발생:", error);
-      });
-    // 유저 이미지 읽어오기
-    // 음..
-  }, [user]);
-
-  if (!userData) {
-    return <div>데이터를 로딩 중입니다...</div>;
-  }
-  if (!data) return;
-
-  console.log(user);
   return (
     <MyPageContainer>
       <MyPageHeader>
@@ -167,55 +109,34 @@ function MyPage() {
             type="file"
             accept="image/*"
             style={{ display: "none" }}
-            onChange={handleFileChange}
           />
           <button
-            onClick={openFileInput}
             className="clip-path"
-            style={{ backgroundImage: `url(${userImage})` }}
+            style={{ backgroundImage: `url(${profileInfo.data?.image_url})` }}
           >
-            {userImage ? "" : "이미지 업로드"}
+            {profileInfo.data?.image_url ? "" : "이미지 업로드"}
           </button>
         </div>
         <section>
           <h2>
-            {userData.name}{" "}
+            {profileInfo.data?.nickname}{" "}
             <button className="btn btn-neutral">프로필 편집</button>{" "}
             <button className="btn btn-neutral">친구 추가</button>
           </h2>
           <hr />
-          이름 : {userData.name} <br />
-          학과 학년 : {userData.grade} <br />
-          소개글 : {userData.introduce} <br />
-          이메일 : {userData.email}
+          이름 : {profileInfo.data?.name} <br />
+          학과 학년 : {profileInfo.data?.grade} <br />
+          소개글 : {profileInfo.data?.introduction} <br />
+          이메일 : {profileInfo.data?.email}
         </section>
       </MyPageHeader>
       <MyPageContents>
-        <button
-          onClick={() => setSelectedIndex(0)}
-          className={selecteIndex == 0 ? "selected" : ""}
-        >
-          게시물
-        </button>
-        <button
-          onClick={() => setSelectedIndex(1)}
-          className={selecteIndex == 1 ? "selected" : ""}
-        >
-          댓글
-        </button>
-        <button
-          onClick={() => setSelectedIndex(2)}
-          className={selecteIndex == 2 ? "selected" : ""}
-        >
-          친구
-        </button>
+        <button>게시물</button>
+        <button>댓글</button>
+        <button>친구</button>
       </MyPageContents>
       <br />
-      {selecteIndex == 0 ? (
-        <MyPagePosts user={user} userImage={userImage} />
-      ) : (
-        <></>
-      )}
+      <MyPagePosts userId={id} />
       {/* {(selecteIndex==1) ? <MyPageComments user={user} userImage={userImage}/> : <></>}
         {(selecteIndex==2) ? <MyPageFriends user={user} userImage={userImage}/> : <></>} */}
     </MyPageContainer>

@@ -1,12 +1,6 @@
 import React, { SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  updateUser,
-  UPDATE_USER,
-  DELETE_USER,
-  deleteUser,
-} from "~/redux/actions";
 import MyPagePostsComments from "./MyPagePostsComments";
 import { useAppDispatch, useAppSelector } from "~/redux/hooks";
 
@@ -108,13 +102,6 @@ const MyPagePostsModal = () => {
   const onChangeDescription = (e: any) => {
     setDescription(e.target.value);
   };
-
-  useEffect(() => {
-    likeCountUpdate();
-  }, [like]);
-  useEffect(() => {
-    scrapCountUpdate();
-  }, [scrap]);
 
   return (
     <ModalContents onClick={handleModalClick}>
