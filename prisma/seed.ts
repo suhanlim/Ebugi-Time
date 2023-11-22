@@ -1,8 +1,11 @@
 import { db } from "~/server/db";
 import { faker } from "@faker-js/faker/locale/ko";
+
+import bcrypt from "bcrypt";
 const prisma = db;
 
 async function main() {
+  const INTERNAL_TEST_PASSWORD_HASH = await bcrypt.hash("123456", 10);
   const precommit_users = Array.from({ length: 10 }, () => {
     const nameSegments = {
       lastName: faker.person.lastName(),
@@ -12,6 +15,8 @@ async function main() {
       data: {
         name: `${nameSegments.lastName}${nameSegments.firstName}`,
         email: faker.internet.email(),
+        password: INTERNAL_TEST_PASSWORD_HASH,
+        // password: faker.internet.password(),
         introduction: faker.lorem.sentence(),
         grade: faker.number.int({ min: 1600000, max: 2400000 }).toString(),
         nickname: faker.internet.displayName(nameSegments),

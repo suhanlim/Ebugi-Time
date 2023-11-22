@@ -2,6 +2,7 @@ import { type Metadata } from "next";
 import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
+import { redirect } from "next/navigation";
 import { Submenu } from "./_components/_home/submenu";
 import { PersonalPanel } from "./_components/_home/personalPanel";
 import { MultipurposePanel } from "./_components/_common/multipurposePanel";
@@ -17,8 +18,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const hello = await api.post.hello.query({ text: "from tRPC" });
   const session = await getServerAuthSession();
+  if (!session?.user) {
+    redirect("/login");
+  }
 
   return (
     <main className="bg-white">

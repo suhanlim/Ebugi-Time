@@ -101,6 +101,7 @@ model Session {
 
 model User {
   id            String    @id @default(uuid())
+  password      String
   name          String
   introduction  String
   grade         String
