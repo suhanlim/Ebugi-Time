@@ -25,7 +25,7 @@ interface PostData {
 
 const Post = (props: {
   post: {
-    postUserImage_url: string | undefined;
+    postUserImage_url: string | null;
     postImage_url: string;
     postUserNickname: string;
     postedDate: Date;
@@ -91,7 +91,7 @@ const Post = (props: {
             border
             borderColor="secondary"
             shape="circle"
-            src={post.postUserImage_url}
+            src={post.postUserImage_url ?? ""}
           />
           <em className="flex-1 text-xl">{post.postUserNickname}</em>
         </div>
