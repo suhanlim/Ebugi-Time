@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Comment from "./Comment";
 import styled from "styled-components";
 import { IoMdSend } from "react-icons/io";
+import { api } from "~/trpc/react";
 
 const CommentInput = styled.textarea`
   width: 100%;
