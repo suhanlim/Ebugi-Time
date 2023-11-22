@@ -2,12 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
 import { api } from "~/trpc/react";
 
 export function CreatePost() {
   const router = useRouter();
   const [name, setName] = useState("");
+  const [content, setContent] = useState("");
+  const category = "open";
+  const image_url = "";
 
   const createPost = api.post.create.useMutation({
     onSuccess: () => {
@@ -20,7 +22,12 @@ export function CreatePost() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        createPost.mutate({ name });
+        createPost.mutate({
+          category: category,
+          name: name,
+          content: content,
+          image_url: image_url,
+        });
       }}
       className="flex flex-col gap-2"
     >

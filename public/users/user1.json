@@ -1,0 +1,291 @@
+{
+  "userId": "11f76376-91e4-4d86-af3a-4df2e4f7ef3d",
+  "id": "a",
+  "password": "a",
+  "name": "유저1",
+  "grade": "컴퓨터공학과 1학년",
+  "introduce": "대충소개글1",
+  "email": "user1@hansung.edu",
+  "userImage": "",
+  "userPosts": [
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    },
+    {
+      "likeCount": 30,
+      "scrapCount": 2,
+      "comments": [
+        {
+          "userId": 1,
+          "name": "유저1",
+          "userImage": "",
+          "contents": "어림도없지",
+          "date": "2023-11-08 오후 4:00"
+        },
+        {
+          "userId": 2,
+          "name": "유저2",
+          "userImage": "",
+          "contents": "어림도없지222",
+          "date": "2023-11-08 오후 4:01"
+        },
+        {
+          "userId": 3,
+          "name": "유저3",
+          "userImage": "",
+          "contents": "어림도없지333",
+          "date": "2023-11-08 오후 4:02"
+        }
+      ],
+      "title": "종강마렵다 교수님 종강주세오1",
+      "description": "대충 게시글 내용",
+      "image": "/images/image1.png",
+      "date": "2023-11-05 오후 3:00"
+    }
+  ]
+}

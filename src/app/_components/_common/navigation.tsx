@@ -25,7 +25,10 @@ export function Navigation() {
               <ForumRoundedIcon />
             </span>
           </Link>
-          <Link href="/profile/1" title="내 정보">
+          <Link
+            href="/profile/0abd0eeb-2220-4874-a75d-c20c9e18e898"
+            title="내 정보"
+          >
             <span className="rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
               <PersonIcon />
             </span>

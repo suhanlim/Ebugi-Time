@@ -1,0 +1,284 @@
+{
+  "userId":3,
+    "id": "c",
+    "password": "c",
+    "name": "유저3",
+    "grade": "컴퓨터공학과 3학년",
+    "introduce": "대충소개글3",
+    "email": "user3@hansung.edu",
+    "userImage":"",
+    "userPosts": [
+        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },
+        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        },        {
+          "likeCount":22,
+          "scrapCount":8,
+          "comments":[ 
+            {
+              "userId":2,
+              "name":"유저2",
+              "userImage":"",
+              "contents":"나도",
+              "date":"2023-11-08 오후 4:00"
+            },
+            {
+              "userId":3,
+              "name":"유저3",
+              "userImage":"",
+              "contents":"나도22",
+              "date":"2023-11-08 오후 4:01"
+            },
+            {
+              "userId":1,
+              "name":"유저1",
+              "userImage":"",
+              "contents":"나도33",
+              "date":"2023-11-08 오후 4:02"
+            }
+          ],
+          "title":"과제귀차나",
+          "description":"대충 게시글 내용",
+          "image":"/images/image3.png",
+          "date":"2023-11-05 오후 3:00"
+        }
+    ]
+}
