@@ -25,7 +25,7 @@ interface PostData {
 
 const Post = (props: {
   post: {
-    postUserImage_url: string | null;
+    postUserImage_url: string | undefined;
     postImage_url: string;
     postUserNickname: string;
     postedDate: Date;
