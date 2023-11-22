@@ -5,6 +5,26 @@
 await import("./src/env.mjs");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  transpilePackages: ["react-daisyui"],
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/u/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cloudflare-ipfs.com",
+        port: "",
+        pathname:
+          "/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/**",
+      },
+    ],
+  },
+};
 
 export default config;

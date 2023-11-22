@@ -2,7 +2,11 @@ import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-  content: ["./src/**/*.tsx"],
+  content: [
+    "node_modules/daisyui/dist/**/*.js",
+    "node_modules/react-daisyui/dist/**/*.js",
+    "./src/**/*.tsx",
+  ],
   theme: {
     extend: {
       fontFamily: {

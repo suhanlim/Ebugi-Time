@@ -1,0 +1,70 @@
+{
+    "posts": [
+        {
+            "postTitle" : "안녕하세요 반갑습니다. 게시글 1이에요.",
+            "postId" : 1,
+            "postUserId": "test1",
+            "postedDate": "2023년 11월 03일",
+            "likedCount": 3,
+            "postContent": "자유게시판에 작성된 글 1의 내용입니다.",
+            "comment": [
+                {
+                    "userId": "test1",
+                    "userComment": "집 가고 싶다",
+                    "commentDate": "2023년 11월 3일",
+                    "commentedLiked": 3
+                },
+                {
+                    "userId": "test2",
+                    "userComment": "집 가고 싶다22",
+                    "commentDate": "2023년 11월 4일",
+                    "commentedLiked": 2
+                }
+            ]
+        },
+        {
+            "postTitle" : "안녕하세요 반갑습니다. 게시글 2에요.",
+            "postId" : 2,
+            "postUserId": "test2",
+            "postedDate": "2023년 11월 03일",
+            "likedCount": 3,
+            "postContent": "자유게시판에 작성된 글 2의 내용입니다.",
+            "comment": [
+                {
+                    "userId": "test1",
+                    "userComment": "post2 comment1",
+                    "commentDate": "2023년 11월 3일",
+                    "commentedLiked": 3
+                },
+                {
+                    "userId": "test2",
+                    "userComment": "post2 comment2",
+                    "commentDate": "2023년 11월 4일",
+                    "commentedLiked": 2
+                }
+            ]
+        },
+        {
+            "postTitle" : "안녕하세요 반갑습니다. 게시글 3이에요.",
+            "postId" : 3,
+            "postUserId": "test3",
+            "postedDate": "2023년 11월 03일",
+            "likedCount": 4,
+            "postContent": "자유게시판에 작성된 글 3의 내용입니다.",
+            "comment": [
+                {
+                    "userId": "test1",
+                    "userComment": "post3 comment1",
+                    "commentDate": "2023년 11월 3일",
+                    "commentedLiked": 3
+                },
+                {
+                    "userId": "test2",
+                    "userComment": "post3 comment1",
+                    "commentDate": "2023년 11월 4일",
+                    "commentedLiked": 2
+                }
+            ]
+        }
+    ]
+}
