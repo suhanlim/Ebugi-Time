@@ -85,7 +85,7 @@ const FreePost = () => {
       }
     };
 
-    fetchData(); // 비동기 처리
+    fetchData().catch(console.error); // 비동기 처리
     //}, [postId]);
   }, [numericPostId]);
 
