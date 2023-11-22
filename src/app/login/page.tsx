@@ -1,3 +1,7 @@
+"use client";
+
+import Login from "~/app/_components/_login/login";
+
 export default function Page() {
-  return <p>login 페이지 : 서윤혜</p>;
+  return <Login />;
 }
