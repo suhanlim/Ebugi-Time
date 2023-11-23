@@ -49,7 +49,6 @@ export const postRouter = createTRPCRouter({
   create: protectedProcedure
     .input(
       z.object({
-        userid: z.string(),
         title: z.string().min(1),
         category: z.string(),
         content: z.string(),
@@ -66,7 +65,7 @@ export const postRouter = createTRPCRouter({
           contents: input.content,
           category: input.category,
           is_deleted: false,
-          createdBy: { connect: { id: input.userid } },
+          createdBy: { connect: { id: ctx.session.user.id } },
           likes: 0,
           image_url: input.image_url,
         },
