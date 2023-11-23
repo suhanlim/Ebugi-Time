@@ -48,7 +48,6 @@ const FreePostList = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("open");
-
   const userId = "0613ffcf-cee3-490b-8642-65d206d7bed6";
   // State for error messages
   const [error, setError] = useState("");
@@ -59,6 +58,7 @@ const FreePostList = () => {
     } else {
       // Your code for successful submission
 
+      api.post.create.useMutation({});
       alert("Posting 성공");
     }
   };
