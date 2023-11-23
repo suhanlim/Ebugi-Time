@@ -1,3 +1,4 @@
+import { Category } from "@mui/icons-material";
 import { z } from "zod";
 
 import {
@@ -20,6 +21,32 @@ export const postRouter = createTRPCRouter({
     .query(({ ctx, input }) => {
       return ctx.db.post.findMany({
         where: { createdById: input.id },
+        select: {
+          likes: true,
+          category: true,
+          scraps: true,
+          comments: true,
+          title: true,
+          contents: true,
+          updatedAt: true,
+          image_url: true,
+        },
+      });
+    }),
+
+  getCategoryPosts: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        category: z.string(), // Add this line to accept a category as input
+      }),
+    )
+    .query(({ ctx, input }) => {
+      return ctx.db.post.findMany({
+        where: {
+          createdById: input.id,
+          category: input.category, // Add this line to filter by category
+        },
         select: {
           likes: true,
           category: true,

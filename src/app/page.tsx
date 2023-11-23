@@ -19,9 +19,6 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const session = await getServerAuthSession();
-  if (!session?.user) {
-    redirect("/login");
-  }
 
   return (
     <main className="bg-white">

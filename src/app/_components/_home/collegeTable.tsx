@@ -1,5 +1,5 @@
 import { CollegeTableEntry } from "./collegeTableEntry";
-export function CollegeTable() {
+export function CollegeTable({ categoryId }: { categoryId: string }) {
   return (
     <div className="overflow-x-auto">
       <table className="table">
