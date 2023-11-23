@@ -1,3 +1,4 @@
+import { Category } from "@mui/icons-material";
 import { z } from "zod";
 
 import {
@@ -13,6 +14,18 @@ export const postRouter = createTRPCRouter({
       return {
         greeting: `Hello ${input.text}`,
       };
+    }),
+
+  getCategoryPosts: publicProcedure
+    .input(z.object({ category: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.post.findMany({
+        where: { category: input.category, is_deleted: false },
+        take: 4,
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
     }),
 
   getOwnPosts: publicProcedure
@@ -36,7 +49,7 @@ export const postRouter = createTRPCRouter({
   create: protectedProcedure
     .input(
       z.object({
-        name: z.string().min(1),
+        title: z.string().min(1),
         category: z.string(),
         content: z.string(),
         image_url: z.string(),
@@ -48,7 +61,7 @@ export const postRouter = createTRPCRouter({
 
       return ctx.db.post.create({
         data: {
-          title: input.name,
+          title: input.title,
           contents: input.content,
           category: input.category,
           is_deleted: false,

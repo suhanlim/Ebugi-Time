@@ -15,6 +15,14 @@ export const userRouter = createTRPCRouter({
       };
     }),
 
+  getSignInfo: publicProcedure
+    .input(z.object({ email: z.string().email() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.user.findUnique({
+        where: { id: input.email },
+      });
+    }),
+
   getProfileInfo: publicProcedure
     .input(z.object({ userId: z.string() }))
     .query(({ ctx, input }) => {

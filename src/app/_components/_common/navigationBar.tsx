@@ -20,13 +20,11 @@ export function NavigationBar() {
           </div>
         </div>
         <div id="account" className="flex items-center md:order-2">
-          <Link href="/message" title="쪽지함">
-            <span className="rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-              <ForumRoundedIcon />
-            </span>
-          </Link>
+          <span className="rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+            <ForumRoundedIcon />
+          </span>
           <Link
-            href="/profile/0abd0eeb-2220-4874-a75d-c20c9e18e898"
+            href="/profile/0613ffcf-cee3-490b-8642-65d206d7bed6"
             title="내 정보"
           >
             <span className="rounded p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
@@ -54,32 +52,24 @@ export function NavigationBar() {
             </Link>
           </li>
           <li>
-            <Link href="/timetable">
-              <span className="block rounded py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
-                시간표
-              </span>
-            </Link>
+            <span className="block rounded py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
+              시간표
+            </span>
           </li>
           <li>
-            <Link href="/lecture">
-              <span className=" block rounded py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
-                강의실
-              </span>
-            </Link>
+            <span className=" block rounded py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
+              강의실
+            </span>
           </li>
           <li>
-            <Link href="/calculator">
-              <span className="block rounded  py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
-                학점계산기
-              </span>
-            </Link>
+            <span className="block rounded  py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
+              학점계산기
+            </span>
           </li>
           <li>
-            <Link href="/friend">
-              <span className="block rounded  py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
-                친구
-              </span>
-            </Link>
+            <span className="block rounded  py-2 pl-3 pr-4 text-lg font-bold text-gray-900 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500">
+              친구
+            </span>
           </li>
         </ul>
       </div>

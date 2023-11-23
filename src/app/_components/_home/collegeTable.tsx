@@ -1,7 +1,9 @@
 import { CollegeTableEntry } from "./collegeTableEntry";
-export function CollegeTable() {
+import { api } from "~/trpc/react";
+export function CollegeTable({ categoryId }: { categoryId: string }) {
+  const data = api.post.getCategoryPosts.useQuery({ category: categoryId });
   return (
-    <div className="overflow-x-auto">
+    <div className="max-w-md overflow-x-auto">
       <table className="table">
         {/* head */}
         <thead>
@@ -12,10 +14,18 @@ export function CollegeTable() {
           </tr>
         </thead>
         <tbody>
-          <CollegeTableEntry />
-          <CollegeTableEntry />
-          <CollegeTableEntry />
-          <CollegeTableEntry />
+          {data.data?.map((v) => (
+            <CollegeTableEntry
+              key={v.id}
+              data={{
+                title: v.title,
+                likes: v.likes,
+                updatedAt: v.updatedAt,
+                id: v.id,
+                createById: v.createdById,
+              }}
+            />
+          ))}
         </tbody>
         {/* foot */}
         <tfoot></tfoot>

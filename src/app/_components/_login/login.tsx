@@ -1,11 +1,12 @@
+"use client";
+
+import { Button } from "../_common/Button";
 import Link from "next/link";
+import { useFormState, useFormStatus } from "react-dom";
+import { authenticate } from "~/utils/actions";
 
-interface UserData {
-  email: string;
-  password: string;
-}
-
-function login() {
+function Login() {
+  const [code, action] = useFormState(authenticate, undefined);
   return (
     <div className="flex h-screen items-center justify-center">
       <img
@@ -13,7 +14,7 @@ function login() {
         alt=""
         className="h-64 w-64"
       />
-      <form className="bg-white-200 w-1/2 p-8">
+      <form className="bg-white-200  w-1/2 p-8">
         <h2 className="mb-4 text-center text-2xl font-bold">LOG IN</h2>
 
         <div className="mb-4">
@@ -38,13 +39,18 @@ function login() {
           />
         </div>
 
-        <button
-          type="submit"
-          className="w-full rounded bg-blue-500 p-2 text-white"
-        >
-          <Link href="/">로그인</Link>
-        </button>
+        <LoginButton />
 
+        <div className="flex h-8 items-end space-x-1">
+          {/* Add form errors here */}
+          {code === "CredentialSignin" && (
+            <>
+              <p aria-live="polite" className="text-sm text-red-500">
+                Invalid credentials
+              </p>
+            </>
+          )}
+        </div>
         <div className="mt-8 text-center text-xl font-semibold text-blue-900">
           <span className="mr-2 text-gray-600">에부기타임이 처음이신가요?</span>
           <Link href="/register">회원가입</Link>
@@ -54,4 +60,14 @@ function login() {
   );
 }
 
-export default login;
+function LoginButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button className="mt-4 w-full" aria-disabled={pending}>
+      <Link href="/">로그인</Link>
+    </Button>
+  );
+}
+
+export default Login;

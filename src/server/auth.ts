@@ -4,10 +4,14 @@ import {
   type DefaultSession,
   type NextAuthOptions,
 } from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 import DiscordProvider from "next-auth/providers/discord";
+import { z } from "zod";
 
+import bcrypt from "bcrypt";
 import { env } from "~/env.mjs";
 import { db } from "~/server/db";
+import { api } from "~/trpc/react";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -51,6 +55,39 @@ export const authOptions: NextAuthOptions = {
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
     }),
+    Credentials({
+      name: "credential",
+      type: "credentials",
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "example@hansung.ac.kr",
+        },
+        password: { label: "Password", type: "password" },
+      },
+      // @ts-expect-error remove when upgraded to authjs
+      authorize: async (credentials) => {
+        const parsedCredentials = z
+          .object({ email: z.string().email(), password: z.string().min(6) })
+          .safeParse(credentials);
+
+        if (parsedCredentials.success) {
+          const { email, password } = parsedCredentials.data;
+          const user = api.user.getSignInfo.useQuery({ email: email });
+          if (!user) return null;
+          const passwordsMatch = await bcrypt.compare(
+            password,
+            user.data?.password ?? "",
+          );
+
+          if (passwordsMatch) return user;
+        }
+
+        return null;
+      },
+    }),
+
     /**
      * ...add more providers here.
      *

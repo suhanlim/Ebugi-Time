@@ -15,14 +15,6 @@ const ModalContents = styled.div`
   }
 `;
 
-interface PostData {
-  postTitle: string;
-  postId: number;
-  postUserId: string;
-  postedDate: string | undefined;
-  postContent: string;
-}
-
 const Post = (props: {
   post: {
     postUserImage_url: string | null;

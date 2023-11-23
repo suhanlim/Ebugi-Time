@@ -25,8 +25,8 @@ export function SubmenuSwiper() {
     setProgressContent(Math.ceil(time / 1000));
   };
   return (
-    <div className="w-full bg-sky-50">
-      <div className="container carousel  mx-auto flex max-w-screen-lg flex-wrap items-center justify-between ">
+    <div className="w-full rounded-lg bg-base-200">
+      <div className="container carousel mx-auto flex max-w-screen-lg flex-wrap items-center justify-between">
         <Swiper
           // install Swiper modules
           modules={[Autoplay, Pagination, A11y]}
@@ -48,7 +48,7 @@ export function SubmenuSwiper() {
           ))}
 
           <div
-            className="autoplay-progress relative bottom-4 z-10 flex h-12 w-12 items-center justify-center "
+            className="autoplay-progress relative bottom-4 z-10 flex h-0 w-12 items-center justify-center pb-2 "
             slot="container-end"
           >
             <ProgressCircle percent={progressCircle} second={progressContent} />
