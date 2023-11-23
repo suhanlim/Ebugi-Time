@@ -24,7 +24,7 @@ export function CreatePost() {
         e.preventDefault();
         createPost.mutate({
           category: category,
-          name: name,
+          title: name,
           content: content,
           image_url: image_url,
         });
