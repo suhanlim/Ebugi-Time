@@ -2,7 +2,6 @@
 import styled from "styled-components";
 import React, { useRef, useState, useCallback } from "react";
 import { Modal } from "react-daisyui";
-import { useAppDispatch, useAppSelector } from "~/redux/hooks";
 import { api } from "~/trpc/react";
 import Post from "../_post/Post";
 import CommentList, { type CommentData } from "../_post/CommentList";
