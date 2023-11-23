@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import { api } from "~/trpc/react";
 
 interface PostData {
   postTitle: string;
@@ -44,8 +45,26 @@ const Section = styled.section`
 `;
 
 const FreePostList = () => {
-  const [postsData, setPostsData] = useState<PostData[]>([]);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [category, setCategory] = useState("open");
 
+  const userId = "0613ffcf-cee3-490b-8642-65d206d7bed6";
+  // State for error messages
+  const [error, setError] = useState("");
+  const handlePosting = () => {
+    // Check if title, content, or category is empty
+    if (title.trim() === "" || content.trim() === "" || category === "") {
+      alert("정확히 입력되었는지 다시 확인해주세요.");
+    } else {
+      // Your code for successful submission
+
+      alert("Posting 성공");
+    }
+  };
+
+  const [postsData, setPostsData] = useState<PostData[]>([]);
+  const categoryInfo = api.category.getAllCategory.useQuery({});
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -72,7 +91,61 @@ const FreePostList = () => {
   return (
     <section>
       <TitleContainer>
-        <strong>자유 게시판</strong>
+        <strong className="pr-10">자유 게시판</strong>
+        {/* The button to open modal */}
+        <label htmlFor="my_modal_6" className="btn">
+          New Post
+        </label>
+
+        {/* Put this part before </body> tag */}
+        <input type="checkbox" id="my_modal_6" className="modal-toggle" />
+        <div className="modal" role="dialog">
+          <div className="modal-box">
+            <h3 className="pb-2 text-lg font-bold">New Posting!</h3>
+
+            <div>
+              {error && <div className="error-message">{error}</div>}
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="select select-info mt-1 w-full rounded border p-2"
+              >
+                <option disabled selected>
+                  Choose Category
+                </option>
+                {categoryInfo.data?.map((data, index) => (
+                  <option value={data.name} key={index}>
+                    {data.name}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="text"
+                placeholder="Title"
+                id="title"
+                className="input input-bordered input-primary w-full max-w-xs"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <textarea
+                placeholder="Content"
+                id="textarea"
+                className="textarea textarea-bordered textarea-lg w-full max-w-xs"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              ></textarea>
+            </div>
+            <p className="py-4"> Image random generate</p>
+            <div className="modal-action">
+              <button className="btn" onClick={handlePosting}>
+                Posting
+              </button>
+              <label htmlFor="my_modal_6" className="btn">
+                Close!
+              </label>
+            </div>
+          </div>
+        </div>
       </TitleContainer>
       <ul>
         {postsData.map((post) => (

@@ -138,18 +138,8 @@ function MyPage() {
         >
           게시물
         </button>
-        <button
-          onClick={() => setBtnIndex(1)}
-          className={btnIndex == 1 ? "selected" : ""}
-        >
-          댓글
-        </button>
-        <button
-          onClick={() => setBtnIndex(2)}
-          className={btnIndex == 2 ? "selected" : ""}
-        >
-          친구
-        </button>
+        <button>댓글</button>
+        <button>친구</button>
       </MyPageContents>
       <br />
       <MyPagePosts userId={id} />
